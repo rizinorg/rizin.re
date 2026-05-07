@@ -2,7 +2,7 @@
 author: "xvilka"
 title: "Google Summer of Code 2026 Announcement"
 date: "2026-05-07"
-summary: "An announcement of the Google Summer of Code 2024. Four accepted candidates."
+summary: "An announcement of the Google Summer of Code 2026. Four accepted candidates."
 tags: ["rizin", "gsoc"]
 ShowToc: true
 TocOpen: false
