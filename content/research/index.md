@@ -12,14 +12,12 @@ TocOpen: true
 
 # Fuzzy Reverse Engineering
 
-These pages document our effort to develop new reverse engineering (RE) methods
-focussing on fuzzy pattern recognition, inductive reasoning with code,
-and laying ground work for training RE neural networks on binary properties
-instead of source code or natural language.
+These pages document our effort to develop new software reverse engineering (RE) methods
+focussing on fuzzy pattern recognition and inductive reasoning with code.
 
 ## The Problem
 
-The definition for "Reverse Engineering" on Wikipedia is (highlights added):
+The definition for "Reverse Engineering" (RE) on Wikipedia is (highlights added):
 
 > Reverse engineering [...] is a process or method through which one attempts
 > to understand through **deductive** reasoning how a previously made device, process,
@@ -29,10 +27,10 @@ This informal definition reflects well what most people understand of RE today.
 But more importantly it shows clearly a long standing assumption that the reasoning process of the
 researcher, the algorithms, or the tools used are of **deductive** nature.
 
-Being deductive means to infer conclusions from premises by using logic.
+Being deductive usually means to infer conclusions from premises by using predicate logic.
 This process is formally very strict.
-Given a set of premises one can only use logic operations to reach conclusions.
-In theory there is no uncertainty in the answer an algorithm gives or gives not.
+Given a set of premises one can only use classical logic operations to reach conclusions.
+In theory, deduction doesn't allow for uncertainty in the answer an algorithm gives or gives not.
 
 Of course, this is not the reality.
 All researchers work with hypothesis and educated guesses. Algorithms like
@@ -41,28 +39,27 @@ Those methods are inductive by nature. They infer results from observations
 and concluding that they are "likely" or "unlikely" true.
 
 There is more emerging research on inductive algorithms allowing
-for uncertainty in their results. Be it a simply sampling of
+for uncertainty in their results. Be it a simple sampling of
 control flow graph (CFG) paths for dynamic analysis,
-or by throwing decompiled code into a large language models (LLM) and let them annotate it.
+or by throwing decompiled code into a large language model (LLM) and let it annotate it.
 
-These inductive methods are useful because we struggle by definition with the
+These inductive methods are useful, because as reverse engineers we struggle by definition with the
 lack of information we are trying to regain.
 And uncertain results can be exceptionally useful, if the alternative are
-no results at all or computationally unfeasible.
+no results at all or if it is computationally unfeasible to restore them.
 
-With the exception of the latest LLM hype reverse engineers still use tools
+With the exception of the latest LLM hype, reverse engineers still use tools
 and algorithms which are effectively from the 90s or 2000s.
-Most of them limiting themselves to conclusions reached by deduction.
+Most of them limit us to conclusions reached by deduction.
 Although, our inherit lack of information makes it so much more suitable for
 inductive algorithms and tools.
 
-With this open research effort we would like to change that and implement
-such tools.
-Tools which are not academic proof of concepts, but designed for real world problems.
+With this open research effort we would like to change that and implement such tools.
+Tools which are not academic proof of concepts, but designed and built for real world problems.
 
 ## A word about AI/LLMs
 
-Current reports show that LLMs seem very much capable of finding unintended behavior.
+Current reports show that LLMs seem very much capable of finding unintended behavior in source code.
 While no one can know how much better the models become, we can assume that there will be improvement.
 
 Our effort here doesn't seek to replace LLMs.
@@ -70,13 +67,14 @@ Quite the opposite even. We believe that neural networks will play a big role fo
 the technology's ability to recognize requested patterns in complex data.
 In this regard our research overlaps with AI research.
 
-We do believe though, that training on program semantics instead of syntax (as it is currently done by processing source code),
+We do believe though, that training on program semantics instead of syntax
+(as it is currently done by processing source code),
 will yield much better results.
 
-Hence, making the reversed binary _semantics_ more accessible in a form to train on,
+Hence, making the reversed binary _semantics_ more accessible in a form to train on
 is within the scope of this research.
 
-## Problems and (Imagined) Inductive Technical Solutions & Intended Human<>Machine Interaction.
+## (Imagined) Inductive Technical Solutions & Intended Human<>Machine Interaction.
 
 Should be extended continuously.
 
@@ -101,12 +99,27 @@ Happy to cooperate!
     - Probabilistic logic programming
     - Knowledge Bases design
     - Neural Networks
+    - Reinforced Learning
     - Bayesian reasoning and graphs
     - Markov Chains
     - Factor Graphs
   - Concrete use cases of the concepts above for RE.
   - Ethical considerations.
+  - Understanding semantics of complex programs
+    - Vulnerability/bug detection
+    - Extracting the architecture of one or more binaries.
+    - Exploit development
   - ...?
 - Add backlog of papers and books to read.
 - Summarize each of them as blog post (in sub-category) for own learning,
   easy entry for newcomers, and proof of expertise for stakeholders.
+
+## Want to participate?
+
+I hope it is needless to say, but:
+No AI allowed. Understanding must be done by humans.
+
+Tasks
+- Correct mistakes, point out errors.
+- Add papers to the reading list, explain how they are important.
+- Read a paper and write a blog-post like summary which condenses the idea, interprets it in respect to software reverse engineering.
