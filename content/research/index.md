@@ -76,9 +76,33 @@ is within the scope of this research.
 
 ## (Imagined) Inductive Technical Solutions & Intended Human<>Machine Interaction.
 
-Should be extended continuously.
+### Core implementations
 
-- ...
+- Implementing a knowledge base storing all observed facts, detected patterns,
+  and defined rules.
+- Implementing (or forking) a language for defining facts, probabilistic rules
+  and inductions from other facts and rules.
+  - Provide common reasoning structures (Bayes, Markov chains, ...)
+- Implement an interpreter for said language.
+- Performance: Implementations must be reasonable gently with resources and
+  be designed to allow for improvements.
+
+### Use case bound solutions
+
+- Rule based classification defined by our language
+  - Tail calls
+  - Type inference from sampled observations.
+- User defined point of view.
+  If a user gives another a-priori probability for certain observations:
+  e.g.: a write memory access at address `a` increases probability of unintended behavior by `p`.
+  Recompute the results with that probability assumed.
+  Add or update that alternative POV to the knowledge base.
+- Heat map of binaries showing patterns X.
+  - Show memory regions which likely yield unintended behavior.
+  - Show memory regions which are likely to interact with a privileged layer.
+- Restoring the binaries architecture
+  - Classifying strongly connected components.
+  - Show memory regions X with a relation R to regions Y.
 
 ## Ethics
 
