@@ -42,7 +42,7 @@ and concluding that they are "likely" or "unlikely" true.
 
 There is more emerging research on inductive algorithms allowing
 for uncertainty in their results. Be it a simply sampling of
-control flow graph (CFG) paths for dymanic analysis,
+control flow graph (CFG) paths for dynamic analysis,
 or by throwing decompiled code into a large language models (LLM) and let them annotate it.
 
 These inductive methods are useful because we struggle by definition with the
@@ -59,6 +59,22 @@ inductive algorithms and tools.
 With this open research effort we would like to change that and implement
 such tools.
 Tools which are not academic proof of concepts, but designed for real world problems.
+
+## A word about AI/LLMs
+
+Current reports show that LLMs seem very much capable of finding unintended behavior.
+While no one can know how much better the models become, we can assume that there will be improvement.
+
+Our effort here doesn't seek to replace LLMs.
+Quite the opposite even. We believe that neural networks will play a big role for the reverse engineering field given
+the technology's ability to recognize requested patterns in complex data.
+In this regard our research overlaps with AI research.
+
+We do believe though, that training on program semantics instead of syntax (as it is currently done by processing source code),
+will yield much better results.
+
+Hence, making the reversed binary _semantics_ more accessible in a form to train on,
+is within the scope of this research.
 
 ## Problems and (Imagined) Inductive Technical Solutions & Intended Human<>Machine Interaction.
 
