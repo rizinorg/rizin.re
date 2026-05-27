@@ -84,42 +84,57 @@ Should be extended continuously.
 
 - Everything done in open
 - Results fully open source.
+- Dual use nature of RE technology.
 - Possible consequences if research succeeds and solutions work as intended.
   - ...
 
 ## Open Research Procedures
 
-Contributions are welcome!
-Happy to cooperate!
+Define problem space, solution space, and add sub-categories for the research we review here.
 
-- Define problem space, solution space, and add sub-categories for the research we review here.
-  - High level research strategy.
-  - Intros to basic data structures and concepts. For example:
-    - Fuzzy logic
-    - Probabilistic logic programming
-    - Knowledge Bases design
+- High level research strategy.
+- Fundamental Concepts
+  - Representing knowledge - Applicable questions of ontology and epistemology
+    - Reasoning
+  - Fuzzy pattern matching
     - Neural Networks
-    - Reinforced Learning
+      - Reinforced Learning
+  - Probabilistic reasoning
+    - Epistemic Logic
+    - Fuzzy logic
     - Bayesian reasoning and graphs
     - Markov Chains
-    - Factor Graphs
-  - Concrete use cases of the concepts above for RE.
-  - Ethical considerations.
-  - Understanding semantics of complex programs
-    - Vulnerability/bug detection
-    - Extracting the architecture of one or more binaries.
-    - Exploit development
-  - ...?
+- Implementation
+  - Knowledge Bases design
+  - Probabilistic logic programming
+- Concrete use cases of the concepts for RE.
+  - Extracting the architecture of one or more binaries.
+  - Semantic understanding of programs
+    - Classification of programs' semantics, binary properties, and attributes.
+    - Detecting concrete unintended behavior.
+    - Exploitation.
+- Ethical considerations.
+- ...?
+
 - Add backlog of papers and books to read.
 - Summarize each of them as blog post (in sub-category) for own learning,
   easy entry for newcomers, and proof of expertise for stakeholders.
 
-## Want to participate?
+## Want to join?
 
-I hope it is needless to say, but:
-No AI allowed. Understanding must be done by humans.
+### Contacts
 
-Tasks
-- Correct mistakes, point out errors.
-- Add papers to the reading list, explain how they are important.
-- Read a paper and write a blog-post like summary which condenses the idea, interprets it in respect to software reverse engineering.
+- [Email](mailto:core@rizin.re)
+- [Mattermost](https://im.rizin.re)
+
+### Tasks
+
+- Correct mistakes, point out errors, report unclear explanations.
+- Search and add articles to the reading list; explain why they are of interest.
+- Sort papers and classify them by importance.
+- Read a paper and write a blog-post like summary which condenses the idea +
+  interprets it in respect to software reverse engineering.
+- Write an overview page about one of the bullet points above.
+
+I hope it is needless to say but:
+No AI allowed. Understanding is still a job of humans.
