@@ -137,7 +137,7 @@ Define problem space, solution space, and add sub-categories for the research we
     - Markov Chains
 - Implementation
   - Knowledge Bases design
-  - Probabilistic logic programming
+  - [Probabilistic logic programming](https://rizin.re/research/language)
 - Concrete use cases of the concepts for RE.
   - Extracting the architecture of one or more binaries.
   - Semantic understanding of programs
