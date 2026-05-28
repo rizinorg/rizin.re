@@ -57,6 +57,12 @@ inductive algorithms and tools.
 With this open research effort we would like to change that and implement such tools.
 Tools which are not academic proof of concepts, but designed and built for real world problems.
 
+## Related work
+
+- Binary Ninja supports experimental [semantic search](https://docs.sidekick.binary.ninja/guide/semantic_indexing.html).
+  The search term can be a vague description ("TLS handshake"), then matching functions
+  are returned. The user has control over the similarity (uncertainty) level of the matching.
+
 ## A word about AI/LLMs
 
 Current reports show that LLMs seem very much capable of finding unintended behavior in source code.
@@ -103,6 +109,7 @@ is within the scope of this research.
 - Restoring the binaries architecture
   - Classifying strongly connected components.
   - Show memory regions X with a relation R to regions Y.
+- Semantic search (See [Semantic Indexing of Binja](https://docs.sidekick.binary.ninja/guide/semantic_indexing.html) as example).
 
 ## Ethics
 
