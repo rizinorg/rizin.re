@@ -161,4 +161,5 @@ Define problem space, solution space, and add sub-categories for the research we
 - Write an overview page about one of the bullet points above.
 
 I hope it is needless to say but:
-No AI allowed. Understanding is still a job of humans.
+No AI allowed at this stage.
+Understanding is the target, not generating.
