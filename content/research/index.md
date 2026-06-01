@@ -27,9 +27,9 @@ This informal definition reflects well what most people understand of RE today.
 But more importantly it shows clearly a long standing assumption that the reasoning process of the
 researcher, the algorithms, or the tools used are of **deductive** nature.
 
-Being deductive usually means to infer conclusions from premises by using predicate logic.
+Being deductive usually means to infer conclusions from premises by using first- or high-order logic.
 This process is formally very strict.
-Given a set of premises one can only use classical logic operations to reach conclusions.
+Given a set of premises one can only use these logic operations to reach conclusions.
 In theory, deduction doesn't allow for uncertainty in the answer an algorithm gives or gives not.
 
 Of course, this is not the reality.
@@ -45,17 +45,60 @@ or by throwing decompiled code into a large language model (LLM) and let it anno
 
 These inductive methods are useful, because as reverse engineers we struggle by definition with the
 lack of information we are trying to regain.
-And uncertain results can be exceptionally useful, if the alternative are
+And uncertain results are be exceptionally useful, if the alternative are
 no results at all or if it is computationally unfeasible to restore them.
 
-With the exception of the latest LLM hype, reverse engineers still use tools
-and algorithms which are effectively from the 90s or 2000s.
-Most of them limit us to conclusions reached by deduction.
-Although, our inherit lack of information makes it so much more suitable for
-inductive algorithms and tools.
+More importantly even inductive methods are suitable for complexity.
+Software is inherently complex.
+It is simply impossible for a human to understand every moving part of a single binary.
+No matter how small it is.
 
-With this open research effort we would like to change that and implement such tools.
-Tools which are not academic proof of concepts, but designed and built for real world problems.
+A high level and abstract representation of the binary, even if wrong in the details, brings value.
+And yet, most RE Tools give you only magnifying glasses, but no map.
+
+With this open research effort we would like to change that.
+Built real world applicable maps, so you know where to look with your magnifying glass.
+
+## Restoring Knowledge Structures
+
+- abstractions and relations of abstractions yield knowledge. Philosophically it reminds me of Frege: a = b
+- Each abstraction and relation is only true with a certain probability and certainty.
+  - In the RE world a-priori knowledge is not the same as the developers had.
+    Because we don't know all inputs (source code, compiler, high level design) leading to that binary. 
+- discovering relations between abstractions, also inherits some of the certainty and probability.
+- the relations between abstractions are together again abstractions.
+- Which can stand in relation.
+- And so forth.
+- The trick must be that this whole relational network can
+  be updated dynamically without recalculating everything.
+- Writing good abstractions and relations is the hard part!
+- Best case it can be explored and controlled by a machine agent with some intention.
+
+Example: Handlers
+
+- classify calls and tail calls
+- observe they are part of a switch
+- The switch depends on some integer input value to jump to some call
+- That can be classified as a procedure handler (calling the right procedure for a flag).
+- Defining these hierarchical and interdependent rules, gives a pattern classify handler code in the memory.
+
+Example: Parsers
+
+- Assume a function getting data, it checks it for being in a valid ASCII range. Returns an int.
+- Function can be classified as string to int parsing.
+- memory reads which increment their index, passing the data to the convert function.
+- can be classified as parsing.
+
+Example: Parser + Handlers
+
+The parser could contain the hand
+
+All those only work if the abstraction and relation rules are build on top of each other.
+The more inference rules and abstractions are built, the better becomes the classification.
+
+These classifications can be combined and updated with LLM input or user a-priori knowledge.
+
+This is what a reverse engineer does. But expressed in a computational form instead of scribbles on a notebook.
 
 ## Related work
 
@@ -80,16 +123,19 @@ will yield much better results.
 Hence, making the reversed binary _semantics_ more accessible in a form to train on
 is within the scope of this research.
 
-## (Imagined) Inductive Technical Solutions & Intended Human<>Machine Interaction.
+## (Imagined) Technical Solutions
+
+### Human<>Machine Interaction
+
+- The user 
 
 ### Core implementations
 
-- Implementing a knowledge base storing all observed facts, detected patterns,
-  and defined rules.
+- Implementing a knowledge base (KB) storing all observed facts, detected patterns,
+  and rules.
 - Implementing (or forking) a language for defining facts, probabilistic rules
   and inductions from other facts and rules.
   - Provide common reasoning structures (Bayes, Markov chains, ...)
-- Implement an interpreter for said language.
 - Performance: Implementations must be reasonable gently with resources and
   be designed to allow for improvements.
 
@@ -99,10 +145,10 @@ is within the scope of this research.
   - Tail calls
   - Type inference from sampled observations.
 - User defined point of view.
-  If a user gives another a-priori probability for certain observations:
-  e.g.: a write memory access at address `a` increases probability of unintended behavior by `p`.
-  Recompute the results with that probability assumed.
-  Add or update that alternative POV to the knowledge base.
+  If a user gives another a-priori probability for certain observations
+  (e.g.: a write memory access at address `a` increases probability of unintended behavior by `p`)
+  recompute the results with that probability assumed.
+  Add or update that alternative POV to the KB.
 - Heat map of binaries showing patterns X.
   - Show memory regions which likely yield unintended behavior.
   - Show memory regions which are likely to interact with a privileged layer.
