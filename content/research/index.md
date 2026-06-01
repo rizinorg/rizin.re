@@ -59,7 +59,7 @@ And yet, most RE Tools give you only magnifying glasses, but no map.
 With this open research effort we would like to change that.
 Built real world applicable maps, so you know where to look with your magnifying glass.
 
-## Restoring Knowledge Structures
+## Restoring Knowledge
 
 - abstractions and relations of abstractions yield knowledge. Philosophically it reminds me of Frege: a = b
 - Each abstraction and relation is only true with a certain probability and certainty.
@@ -72,6 +72,7 @@ Built real world applicable maps, so you know where to look with your magnifying
 - The trick must be that this whole relational network can
   be updated dynamically without recalculating everything.
 - Writing good abstractions and relations is the hard part!
+- Exploring which abstractions and relations make sense.
 - Best case it can be explored and controlled by a machine agent with some intention.
 
 Example: Handlers
@@ -98,13 +99,8 @@ The more inference rules and abstractions are built, the better becomes the clas
 
 These classifications can be combined and updated with LLM input or user a-priori knowledge.
 
-This is what a reverse engineer does. But expressed in a computational form instead of scribbles on a notebook.
-
-## Related work
-
-- Binary Ninja supports experimental [semantic search](https://docs.sidekick.binary.ninja/guide/semantic_indexing.html).
-  The search term can be a vague description ("TLS handshake"), then matching functions
-  are returned. The user has control over the similarity (uncertainty) level of the matching.
+This is what a reverse engineer does.
+**But expressed in a computational form instead of scribbles on a notebook.**
 
 ## A word about AI/LLMs
 
@@ -123,11 +119,54 @@ will yield much better results.
 Hence, making the reversed binary _semantics_ more accessible in a form to train on
 is within the scope of this research.
 
-## (Imagined) Technical Solutions
+## Solutions
+
+The notes below are very rough and the field of our work.
+They should be understood as sketches, notes, and keywords.
+
+If one of them was looked at in more detail, it will link to a page
+describing its dimensions.
+
+If any of those points below strike you as odd or you have questions what they mean,
+please don't hesitate to contact us (preferably on [Mattermost](https://im.rizin.re)).
+
+### Philosophy of epistemology and ethics
+
+The philosophical part is obviously not the main point of the research.
+Nonetheless, I believe it is essential to concern ourselves with it:
+1. The question how to gain meaning from complexity is not a purely technical one.
+  Instead it is a deeply philosophical question in itself.
+  Ignoring the ideas of a whole field would quite simply hinder our effort for no good reason.
+2. I have the assumption that, trying to look at our problem from philosophical point of views
+  will help us keeping the bigger picture.
+  It is far to easy to get lost in technical details.
+  There is no need to accelerate this notion.
+
+#### Epistemology
+
+- Describing the spectrum of definitions of abstractions and relations.
+  Define something suitable for our use case.
+- How do we gain meaning about the world (about our technical system)?
+- Is our language sufficiently describing the substance?
+  - What are consequences for building up knowledge about complexity?
+
+#### Ethics
+
+- Dual use nature of RE technology.
+- Technology as a way to project power. Power for whom?
+- Everything here is done in open.
+- Results fully open source.
+- Possible consequences if research succeeds and solutions work as intended.
+- Considering unknown unknowns.
 
 ### Human<>Machine Interaction
 
-- The user 
+- Semantic search. Type text, get objects served for that category.
+- Multiple representation of knowledge.
+  - the language, Names, Graphs, heat maps, plots, diagrams, highlights in assembly, what else?
+  - Predefined sets of "perspectives" for a given use case.
+    - A set of categories and visualizations for mapping risk in
+      a binary, exploitation, architectural understanding, reversing a specific piece of code.
 
 ### Core implementations
 
@@ -156,14 +195,6 @@ is within the scope of this research.
   - Classifying strongly connected components.
   - Show memory regions X with a relation R to regions Y.
 - Semantic search (See [Semantic Indexing of Binja](https://docs.sidekick.binary.ninja/guide/semantic_indexing.html) as example).
-
-## Ethics
-
-- Everything done in open
-- Results fully open source.
-- Dual use nature of RE technology.
-- Possible consequences if research succeeds and solutions work as intended.
-  - ...
 
 ## Open Research Procedures
 
@@ -216,3 +247,9 @@ Define problem space, solution space, and add sub-categories for the research we
 I hope it is needless to say but:
 No AI allowed at this stage.
 Understanding is the target, not generating.
+
+## Related work
+
+- Binary Ninja supports experimental [semantic search](https://docs.sidekick.binary.ninja/guide/semantic_indexing.html).
+  The search term can be a vague description ("TLS handshake"), then matching functions
+  are returned. The user has control over the similarity (uncertainty) level of the matching.
