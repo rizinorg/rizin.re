@@ -25,3 +25,7 @@ TocOpen: true
   - Currently active developed.
   - Part of the startup [Cleverplant](https://cleverplant.com).
   - Requires signing of [commercial](https://github.com/semantic-reasoning/wirelog/blob/main/CLA.md) license for contributions.
+
+  **Misses**
+  - [No probabilistic extension](https://github.com/semantic-reasoning/wirelog/issues/909)
+  - [No support](https://github.com/semantic-reasoning/wirelog/blob/272edf3a24b25676f12c4b843d55510f5048dd2f/wirelog/wirelog-types.h#L183) for values wider than 64bits
