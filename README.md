@@ -8,8 +8,11 @@
     $ git clone --recurse-submodules https://github.com/rizinorg/website
     ```
 3. Enter the cloned repository and "serve" the website using Hugo
-    ```
+    ```bash
     $ cd website
+    # Check hugo version
+    $hugo version
+    hugo v0.111.3-5d4eb5154e1fed125ca8e9b5a0315c4180dab192+extended linux/amd64 BuildDate=2023-03-12T11:40:50Z VendorInfo=gohugoio
     $ hugo serve
     ```
 
