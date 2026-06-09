@@ -2,7 +2,6 @@
 author: "Rot127"
 title: "Language"
 layout: "single"
-url: "/research/language"
 summary: "research"
 tags: ["rizin", "research", "ai", "binary analysis", "reverse engineering"]
 

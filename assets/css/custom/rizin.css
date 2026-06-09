@@ -560,3 +560,51 @@
     grid-template-columns: 1fr 1fr 1fr;
   }
 }
+
+.bib-items {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.bib-items__item {
+  display: flex;
+  width: 100%;
+  margin-bottom: 2rem;
+  background: var(--entry);
+  margin: 10px 10px 10px 0;
+  padding: 5px;
+  flex-direction: column;
+}
+
+.bib-items__item__link {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-left: 20px;
+}
+
+.bib-items__item__isbn {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-left: 20px;
+}
+
+.bib-items__item__abstract {
+  display: flex;
+  width: 90%;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background: var(--main);
+  flex-direction: column;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+}
+
+.bib-items_item h3 {
+  margin-bottom: 1rem;
+  font-weight: 700;
+}

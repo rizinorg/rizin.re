@@ -250,3 +250,7 @@ Understanding is the target, not generating.
 - Binary Ninja supports experimental [semantic search](https://docs.sidekick.binary.ninja/guide/semantic_indexing.html).
   The search term can be a vague description ("TLS handshake"), then matching functions
   are returned. The user has control over the similarity (uncertainty) level of the matching.
+
+## Bibliography
+
+See the [bibliography](https://rizin.re/research/bibliography) page.

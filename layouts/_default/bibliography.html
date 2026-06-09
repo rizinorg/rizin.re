@@ -1,32 +1,46 @@
-{{- define "main" }} {{ $bib := (index .Site.Data.bib.Bibliography .Params.bib) }}
+{{- define "main" }} {{ $bib := (index .Site.Data.bibliography) }}
+
 <header class="page-header">
   <h1>Bibliography</h1>
   <div class="underline"></div>
 </header>
 
-<h1>Bibliography</h1>
-
 <div class="bib-items">
-  {{- range $bib }} {{ $item := index $.Site.Data.bib . }}
-  <div class="bib-item__item">
-    <div class="bib-item__id", id="{{$item.id}}">
-      <h3 class="mt-5 mb-10">{{$item.id}}</h3>
-      <ul>
-        {{- if $item.URL }}
-        <li>
-          <a class="bib-item__item__link" href="{{$item.URL}}">
-            <p>{{$item.URL}}</p>
-          </a>
-        </li>
-        {{- end}}
-        {{- if $item.DOI }}
-        <li>
-          <a class="bib-item__item__doi" href="https://doi.org/{{$item.DOI}}">
-            <p>https://doi.org/{{$item.DOI}}</p>
-          </a>
-        </li>
-        {{- end}}
-      </ul>
+  {{ range $bib }}
+  <div class="bib-items__item">
+    <div class="bib-items__item", id="{{ .id }}">
+      {{- if .title }}
+      <h3>{{ .title }}</h3>
+      {{- else }}
+      <h3>{{ .id }}</h3>
+      {{- end }}
+
+      {{- if .abstract }}
+        <div class="bib-items__item__abstract">
+        <details>
+        <summary>Abstract</summary>
+          <p>
+          {{ .abstract }}
+          </p>
+        </details>
+        </div>
+      {{- end}}
+
+      {{- if .URL }}
+        <a class="bib-item__item__link" href="{{ .URL }}">
+          <p>URL: {{ .URL }}</p>
+        </a>
+      {{- end}}
+
+      {{- if .DOI }}
+        <a class="bib-item__item__doi" href="https://doi.org/{{ .DOI }}">
+          <p>DOI: https://doi.org/{{ .DOI }}</p>
+        </a>
+      {{- end}}
+
+      {{- if .ISBN }}
+        <p>ISBN: {{ .ISBN }}</p>
+      {{- end}}
     </div>
   </div>
   {{- end }}
