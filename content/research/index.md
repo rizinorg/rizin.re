@@ -63,8 +63,8 @@ Built real world applicable maps, so you know where to look with your magnifying
 
 - abstractions and relations of abstractions yield knowledge. Philosophically it reminds me of Frege: a = b
 - Each abstraction and relation is only true with a certain probability and certainty.
-  - In the RE world a-priori knowledge is not the same as the developers had.
-    Because we don't know all inputs (source code, compiler, high level design) leading to that binary. 
+  - The reverse engineers a-priori knowledge is not the same as the developers had.
+    Because we don't know all inputs (source code, compiler, high level design, and intention) leading to that binary.
 - discovering relations between abstractions, also inherits some of the certainty and probability.
 - the relations between abstractions are together again abstractions.
 - Which can stand in relation.
@@ -135,8 +135,8 @@ please don't hesitate to contact us (preferably on [Mattermost](https://im.rizin
 The philosophical part is obviously not the main point of the research.
 Nonetheless, I believe it is essential to concern ourselves with it:
 1. The question how to gain meaning from complexity is not a purely technical one.
-  Instead it is a deeply philosophical question in itself.
-  Ignoring the ideas of a whole field would quite simply hinder our effort for no good reason.
+  It is a philosophical question in itself.
+  Ignoring the research of a whole discipline would simply hinder our effort for no good reason.
 2. I have the assumption that, trying to look at our problem from philosophical point of views
   will help us keeping the bigger picture.
   It is far to easy to get lost in technical details.
@@ -144,11 +144,11 @@ Nonetheless, I believe it is essential to concern ourselves with it:
 
 #### Epistemology
 
-- Describing the spectrum of definitions of abstractions and relations.
-  Define something suitable for our use case.
+- Definitions of abstractions and relations.
+  Find something suitable for our use case.
 - How do we gain meaning about the world (about our technical system)?
 - Is our language sufficiently describing the substance?
-  - What are consequences for building up knowledge about complexity?
+  - What are consequences of building up knowledge about complexity?
 
 #### Ethics
 
@@ -157,16 +157,13 @@ Nonetheless, I believe it is essential to concern ourselves with it:
 - Everything here is done in open.
 - Results fully open source.
 - Possible consequences if research succeeds and solutions work as intended.
-- Considering unknown unknowns.
+- What could be unknown unknowns?
 
 ### Human<>Machine Interaction
 
 - Semantic search. Type text, get objects served for that category.
 - Multiple representation of knowledge.
-  - the language, Names, Graphs, heat maps, plots, diagrams, highlights in assembly, what else?
-  - Predefined sets of "perspectives" for a given use case.
-    - A set of categories and visualizations for mapping risk in
-      a binary, exploitation, architectural understanding, reversing a specific piece of code.
+  - the language, names, graphs, heat maps, plots, diagrams, highlights in assembly, what else?
 
 ### Core implementations
 
@@ -178,7 +175,7 @@ Nonetheless, I believe it is essential to concern ourselves with it:
 - Performance: Implementations must be reasonable gently with resources and
   be designed to allow for improvements.
 
-### Use case bound solutions
+### Specific use case solutions
 
 - Rule based classification defined by our language
   - Tail calls
@@ -191,7 +188,7 @@ Nonetheless, I believe it is essential to concern ourselves with it:
 - Heat map of binaries showing patterns X.
   - Show memory regions which likely yield unintended behavior.
   - Show memory regions which are likely to interact with a privileged layer.
-- Restoring the binaries architecture
+- Restoring binary architecture
   - Classifying strongly connected components.
   - Show memory regions X with a relation R to regions Y.
 - Semantic search (See [Semantic Indexing of Binja](https://docs.sidekick.binary.ninja/guide/semantic_indexing.html) as example).
@@ -225,7 +222,7 @@ Define problem space, solution space, and add sub-categories for the research we
 - ...?
 
 - Add backlog of papers and books to read.
-- Summarize each of them as blog post (in sub-category) for own learning,
+- Summarize each of them as a short blog post (in sub-category) for own learning,
   easy entry for newcomers, and proof of expertise for stakeholders.
 
 ## Want to join?
