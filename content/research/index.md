@@ -144,7 +144,7 @@ Nonetheless, I believe it is essential to concern ourselves with it:
 
 #### Epistemology
 
-- Definitions of abstractions and relations.
+- [Definitions of abstractions and relations.](https://rizin.re/research/abstraction_relation)
   Find something suitable for our use case.
 - How do we gain meaning about the world (about our technical system)?
 - Is our language sufficiently describing the substance?
