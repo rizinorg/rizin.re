@@ -608,3 +608,24 @@
   margin-bottom: 1rem;
   font-weight: 700;
 }
+
+:target {
+  animation: highlight 2s ease-out;
+}
+
+/* Force reflow by changing something that doesn't affect appearance */
+:target::after {
+  content: "";
+}
+
+@keyframes highlight {
+  0% {
+    background-color: yellow;
+    box-shadow: 0 0 20px rgba(255, 255, 0, 0.5);
+  }
+  100% {
+    background-color: transparent;
+    box-shadow: none;
+  }
+}
+

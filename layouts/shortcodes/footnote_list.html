@@ -1,0 +1,15 @@
+{{ $hdr := .Get 0 }}
+{{ $list := .Page.Store.Get "footnotes" }}
+
+<div class=footnotes>
+<div><h2>{{ $hdr }}<h2></div>
+
+{{ range $citation_id, $num := $list }}
+
+<div id={{ $citation_id }}>
+{{ $num }}: <a href="https://rizin.re/research/bibliography#{{ $citation_id }}">{{$citation_id}}</a>
+</div>
+
+</div>
+{{end}}
+{{ .Page.Scratch.Delete "footnotes" }}

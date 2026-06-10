@@ -1,0 +1,20 @@
+{{ $val := .Get 0 }}
+{{ $fnotes := .Page.Store.Get "footnotes" }}
+
+{{ if isset $fnotes $val }}
+
+<a class="footnote_id" href="#{{ $val }}">({{ index $fnotes $val }})</a>
+
+{{ else }}
+
+{{ $id := 0 }}
+{{ with $fnotes }}
+{{ $id = len $fnotes }}
+{{ end }}
+
+{{ .Page.Store.SetInMap "footnotes" $val $id }}
+
+<a class="footnote_id" href="#{{ $val }}">({{ $id }})</a>
+
+{{ end }}
+

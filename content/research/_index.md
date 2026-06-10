@@ -61,7 +61,7 @@ Built real world applicable maps, so you know where to look with your magnifying
 
 ## Restoring Knowledge
 
-- abstractions and relations of abstractions yield knowledge. Philosophically it reminds me of Frege: a = b
+- abstractions and relations {{< footnote "pollardWhatAbstraction1987" >}} of abstractions yield knowledge. Philosophically it reminds me of Frege: a = b
 - Each abstraction and relation is only true with a certain probability and certainty.
   - The reverse engineers a-priori knowledge is not the same as the developers had.
     Because we don't know all inputs (source code, compiler, high level design, and intention) leading to that binary.
@@ -251,6 +251,4 @@ Understanding is the target, not generating.
   The search term can be a vague description ("TLS handshake"), then matching functions
   are returned. The user has control over the similarity (uncertainty) level of the matching.
 
-## Bibliography
-
-See the [bibliography](https://rizin.re/research/bibliography) page.
+{{< footnote_list "References" >}}
