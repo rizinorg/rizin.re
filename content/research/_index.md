@@ -103,9 +103,9 @@ is indeed parsing strings:
 ![Example of inferring from observations a new property](/images/example_string_parsing.svg)
 
 The probability assigned to the indicators can come from many different sources.
-The `regex_match()` call is probably statically known, and its certainty is 100%.
-We also could observe (e.g., by emulation) that there is a loop that breaks on `\0`.
-There was some code possibly checking for ASCII, but that is uncertain.
+The `regex_match()` call is maybe statically known, and we are 100% sure the code calls it.
+We also know that there is a loop that breaks on `\0`.
+There was also some code _possibly_ checking for ASCII, but that is uncertain.
 `atoi` was definitely not called, and while there were some strings referenced that were similar to "parser,"
 there was no direct match. And lastly, the memory access pattern didn't really follow our requirements.
 
