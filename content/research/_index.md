@@ -59,48 +59,73 @@ And yet, most RE Tools give you only magnifying glasses, but no map.
 With this open research effort we would like to change that.
 Built real world applicable maps, so you know where to look with your magnifying glass.
 
-## Restoring Knowledge
+## On Restoring Knowledge
 
-- abstractions and relations {{< footnote "pollardWhatAbstraction1987" >}} of abstractions yield knowledge. Philosophically it reminds me of Frege: a = b
-- Each abstraction and relation is only true with a certain probability and certainty.
-  - The reverse engineers a-priori knowledge is not the same as the developers had.
-    Because we don't know all inputs (source code, compiler, high level design, and intention) leading to that binary.
-- discovering relations between abstractions, also inherits some of the certainty and probability.
-- the relations between abstractions are together again abstractions.
-- Which can stand in relation.
-- And so forth.
-- The trick must be that this whole relational network can
-  be updated dynamically without recalculating everything.
-- Writing good abstractions and relations is the hard part!
-- Exploring which abstractions and relations make sense.
-- Best case it can be explored and controlled by a machine agent with some intention.
+To give a concrete example how such an inductive method can look like
+consider the following.
 
-Example: Handlers
+### Example: Classifying a string parser function
 
-- classify calls and tail calls
-- observe they are part of a switch
-- The switch depends on some integer input value to jump to some call
-- That can be classified as a procedure handler (calling the right procedure for a flag).
-- Defining these hierarchical and interdependent rules, gives a pattern classify handler code in the memory.
+You open a binary and are interested in checking strings parser in it,
+because they are often a source of bugs.
+What we want is, that users can just type some prompt and
+see a heat map of code regions.
+The brighter certain spots are, the higher the likelihood they are
+string parsing code.
 
-Example: Parsers
+How could this be done?
 
-- Assume a function getting data, it checks it for being in a valid ASCII range. Returns an int.
-- Function can be classified as string to int parsing.
-- memory reads which increment their index, passing the data to the convert function.
-- can be classified as parsing.
+---
 
-Example: Parser + Handlers
+Let's consider what _indicators_ there are to infer that some code is
+parsing a string:
 
-The parser could contain the hand
+- It could call functions which have something to do with regular expressions.
+- It could contain loops breaking on a read `\0` byte.
+- It could check read bytes if they are in ASCII range.
+- It could pass read bytes to `atoi`.
+- It references strings which have the word "parser", "parsing error", or "parse" in it.
+- Its memory access patterns could be
+  - sequential (reading character by character, word by word)
+  - or jump once then read sequential (reading an offset to a sub-string, parse the sub string).
+- And probably many more indicators...
 
-All those only work if the abstraction and relation rules are build on top of each other.
-The more inference rules and abstractions are built, the better becomes the classification.
+Some of these indicators give stronger evidence than others.
+For example, if code references a string which reads something like "parsing error at 0x%x"
+is a strong indicator it parses something (not necessarily strings though!).
+The memory access patterns in the loops are maybe less significant.
+But if we observe a "parsing error" message, referenced in a loop which breaks on a `\0` byte,
+we can be pretty certain.
 
-These classifications can be combined and updated with LLM input or user a-priori knowledge.
+Let's visualize how the indicators could impact a inferred probability that the observed code
+is indeed parsing strings:
 
-This is what a reverse engineer does.
-**But expressed in a computational form instead of scribbles on a notebook.**
+![Example of inferring from observations a new property](/images/example_string_parsing.svg)
+
+The probability assigned to the indicators can come from many different sources.
+The `regex_match()` call is probably statically known and its certainty is 100%.
+We also could observe (e.g. by emulation) that there is a loop which `breaks on \0`.
+There was some code possibly checking for ASCII, but that is uncertain.
+`atoi` was definitely not called, and while there were some strings referenced which were _similar_ to "parser"
+there was no direct match. And lastly the memory access pattern didn't really follow our requirements.
+
+It is important to understand, that the probabilities of these observations,
+can in itself be a product of a similar reasoning structure.
+For example, the `refs "parser" string` could come from a Jaro–Winkler distance,
+`Checks ASCII` from symbolic execution, `Calls atoi` could be checked statically,
+and `Loop breaks for \0` was maybe set manually by the user.
+
+You quickly see that one can build reasoning networks like that.
+Of course, these don't need to use these naive computations of weighting and summing probabilities.
+Bayesian networks, Markov Chains, or whatever you can implement in code are possible.
+
+In the end, this is what a reverse engineer does.
+
+_Except_ it is expressed in a computational form, instead of scribbles on a notebook.
+
+---
+
+For a more fundamental philosophical discussion of this process see the [Epistemology](/research/epistemology) page.
 
 ## A word about AI/LLMs
 
@@ -144,8 +169,8 @@ Nonetheless, I believe it is essential to concern ourselves with it:
 
 #### Epistemology
 
-- [Definitions of abstractions and relations.](https://rizin.re/research/abstraction_relation)
-  Find something suitable for our use case.
+- [Abstractions, relations, and their modality.](/research/abstraction_relation)
+  Find a suitable description for our use case.
 - How do we gain meaning about the world (about our technical system)?
 - Is our language sufficiently describing the substance?
   - What are consequences of building up knowledge about complexity?
@@ -167,8 +192,9 @@ Nonetheless, I believe it is essential to concern ourselves with it:
 
 ### Core implementations
 
-- Implementing a knowledge base (KB) storing all observed facts, detected patterns,
+- Implementing a knowledge base (KB) or knowledge representation storing all observed facts, detected patterns,
   and rules.
+  - How is it represented: table like (row, column oriented), graph, hypergraph?
 - Implementing (or forking) a language for defining facts, probabilistic rules
   and inductions from other facts and rules.
   - Provide common reasoning structures (Bayes, Markov chains, ...)
@@ -191,7 +217,7 @@ Nonetheless, I believe it is essential to concern ourselves with it:
 - Restoring binary architecture
   - Classifying strongly connected components.
   - Show memory regions X with a relation R to regions Y.
-- Semantic search (See [Semantic Indexing of Binja](https://docs.sidekick.binary.ninja/guide/semantic_indexing.html) as example).
+- Semantic search (See Semantic Indexing of Binja {{<footnote UsingSemanticIndexing>}} as example).
 
 ## Open Research Procedures
 
@@ -211,7 +237,7 @@ Define problem space, solution space, and add sub-categories for the research we
     - Markov Chains
 - Implementation
   - Knowledge Bases design
-  - [Probabilistic logic programming](https://rizin.re/research/language)
+  - [Probabilistic logic programming](/research/language)
 - Concrete use cases of the concepts for RE.
   - Extracting the architecture of one or more binaries.
   - Semantic understanding of programs
