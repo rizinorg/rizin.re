@@ -4,7 +4,7 @@
 
 **Is abstraction the correct term fr what is described below?**
 
-Wikionary {{< footnote "Abstractus2025" >}}:
+Wikionary {{< citation "Abstractus2025" >}}:
 
 > abstractus (feminine abstracta, neuter abstractum, adverb abstractiter); first/second-declension participle
 >  1. drawn away from, having been drawn away from
@@ -14,7 +14,7 @@ Wikionary {{< footnote "Abstractus2025" >}}:
 
 ### Abstractions and relations
 
-- abstractions and relations and their modality {{< footnote "pollardWhatAbstraction1987" >}} to yield knowledge.
+- abstractions and relations and their modality {{< citation "pollardWhatAbstraction1987" >}} to yield knowledge.
 - the relations between abstractions are together again abstractions.
 - Which can stand in relation.
 - And so forth.
@@ -37,5 +37,10 @@ People should be able to replace them.
 - Exploring which abstractions and relations make sense.
 - Best case it can be explored and controlled by a machine agent with some intention.
 
+----
 
-{{< footnote_list "References" >}}
+{{< citation_list "Citations" >}}
+
+----
+
+{{< footnote_list "Footnotes" >}}

@@ -220,7 +220,7 @@ Nonetheless, I believe it is essential to concern ourselves with it:
 - Restoring binary architecture
   - Classifying strongly connected components
   - Show memory regions X with a relation R to regions Y.
-- Semantic search (see Semantic Indexing of Binja {{<footnote UsingSemanticIndexing>}} as an example).
+- Semantic search (see Semantic Indexing of Binja {{<citation UsingSemanticIndexing>}} as an example).
 
 ## Open Research Procedures
 
@@ -280,4 +280,4 @@ Understanding is the target, not generating.
   The search term can be a vague description ("TLS handshake"); then matching functions
   are returned. The user has control over the similarity (uncertainty) level of the matching.
 
-{{< footnote_list "References" >}}
+{{< citation_list "References" >}}

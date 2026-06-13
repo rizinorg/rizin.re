@@ -1,9 +1,9 @@
-{{ $val := .Get 0 }}
+{{ $text := .Get 0 }}
 {{ $fnotes := .Page.Store.Get "footnotes" }}
 
-{{ if isset $fnotes $val }}
+{{ if isset $fnotes $text }}
 
-<a class="footnote_id" href="#{{ $val }}">({{ index $fnotes $val }})</a>
+<a class="footnote_id" href="#f{{ index $fnotes $text }}">(f{{ index $fnotes $text }})</a>
 
 {{ else }}
 
@@ -12,9 +12,8 @@
 {{ $id = len $fnotes }}
 {{ end }}
 
-{{ .Page.Store.SetInMap "footnotes" $val $id }}
+{{ .Page.Store.SetInMap "footnotes" $text $id }}
 
-<a class="footnote_id" href="#{{ $val }}">({{ $id }})</a>
+<a class="footnote_id" href="#f{{ $id }}">(f{{ $id }})</a>
 
 {{ end }}
-

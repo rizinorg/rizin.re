@@ -1,0 +1,15 @@
+{{ $hdr := .Get 0 }}
+{{ $list := .Page.Store.Get "citations" }}
+
+<div>
+<div><h2>{{ $hdr }}<h2></div>
+
+{{ range $citation_id, $num := $list }}
+
+<div id={{ $citation_id }}>
+c{{ $num }}: <a href="/research/bibliography#{{ $citation_id }}">{{$citation_id}}</a>
+</div>
+
+</div>
+{{end}}
+{{ .Page.Scratch.Delete "citations" }}

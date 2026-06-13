@@ -1,13 +1,13 @@
 {{ $hdr := .Get 0 }}
-{{ $list := .Page.Store.Get "footnotes" }}
+{{ $map := .Page.Store.Get "footnotes" }}
 
-<div class=footnotes>
+<div>
 <div><h2>{{ $hdr }}<h2></div>
 
-{{ range $citation_id, $num := $list }}
+{{ range $ftext, $id := $map }}
 
-<div id={{ $citation_id }}>
-{{ $num }}: <a href="/research/bibliography#{{ $citation_id }}">{{$citation_id}}</a>
+<div id=f{{ $id }}>
+f{{ $id }}: {{ $ftext }}
 </div>
 
 </div>
