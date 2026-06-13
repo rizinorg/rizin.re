@@ -140,9 +140,8 @@ Quite the opposite, even. We believe that neural networks will play a big role i
 the technology's ability to recognize requested patterns in complex data.
 In this regard, our research overlaps with AI research.
 
-We do believe, though, that training on program semantics instead of syntax
-(as is currently done by processing source code)
-will yield much better results.
+We do believe, though, that training models on more diverse inputs than just
+source code will yield much better results.
 
 Hence, making the reversed binary semantics more accessible in a form to train on
 is within the scope of this research.
@@ -210,7 +209,7 @@ Nonetheless, I believe it is essential to concern ourselves with it:
   - Tail calls
   - Type inference from sampled observations
 - User-defined point of view.
-  If a user gives another a priori probability for certain observations
+  If a user gives another a posteriori probability for certain observations
   (e.g., a write memory access at address `a` increases the probability of unintended behavior by `p`),
   recompute the results with that probability assumed.
   Add or update that alternative POV to the KB.

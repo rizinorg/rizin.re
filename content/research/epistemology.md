@@ -14,17 +14,17 @@ Wikionary {{< citation "Abstractus2025" >}}:
 
 ### Abstractions and relations
 
-- abstractions and relations and their modality {{< citation "pollardWhatAbstraction1987" >}} to yield knowledge.
+- abstractions and relations {{< citation "pollardWhatAbstraction1987" >}} and their modality.
 - the relations between abstractions are together again abstractions.
 - Which can stand in relation.
 - And so forth.
-- The initial abstractions are just assumed to be a-priori. But don't have to.
-People should be able to replace them.
+- The initial abstractions are just assumed to be a posteriori.
+But people should be able to replace them with a priori knowledge (which are inferred from a posteriori knowledge).
 
 ### Uncertainty and modality
 
 - Each abstraction and relation is only true with a certain probability and certainty.
-  - The reverse engineers a-priori knowledge is not the same as the developers had.
+  - The reverse engineers a posteriori knowledge is not the same as the developers had.
     Because we don't know all inputs (source code, compiler, high level design, and intention) leading to that binary.
 - discovering relations between abstractions, also inherits some of the certainty and probability.
 
