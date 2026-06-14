@@ -28,7 +28,7 @@ But people should be able to replace them with a priori knowledge (which are inf
     Because we don't know all inputs (source code, compiler, high level design, and intention) leading to that binary.
 - discovering relations between abstractions, also inherits some of the certainty and probability.
 
-## On restoring Knowledge
+## Reasoning - On restoring Knowledge
 
 - We write new abstractions by defining new relations between existing abstractions.
 - A new abstraction emerges.

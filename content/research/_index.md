@@ -30,7 +30,7 @@ researcher, the algorithms, or the tools used are of a **deductive** nature.
 Being deductive usually means inferring conclusions from premises by using first- or higher-order logic.
 This process is formally very strict.
 Given a set of premises, one can only use these logical operations to reach conclusions.
-In theory, deduction doesn't allow for uncertainty in the answer an algorithm gives or does not give.
+Commonly, deduction doesn't allow for uncertainty in the answer an algorithm gives or does not give.
 
 Of course, this is not the reality.
 All researchers work with hypotheses and educated guesses. Algorithms like
@@ -40,7 +40,7 @@ and conclude that they are "likely" or "unlikely" true.
 
 There is more emerging research on inductive algorithms allowing
 for uncertainty in their results. Be it a simple sampling of
-control-flow graph (CFG) paths for dynamic analysis
+control-flow graph (CFG) paths {{< citation zhangRevampingBinaryAnalysis2023 >}} for dynamic analysis
 or throwing decompiled code into a large language model (LLM) and letting it annotate it.
 
 These inductive methods are useful because, as reverse engineers, we struggle by definition with the
@@ -48,7 +48,7 @@ lack of information we are trying to regain.
 And uncertain results can be exceptionally useful if the alternatives are
 no results at all or if it is computationally unfeasible to restore them.
 
-More importantly, even inductive methods are suitable for complexity.
+More importantly, inductive methods are suitable for complexity.
 Software is inherently complex.
 It is simply impossible for a human to understand every moving part of a single binary,
 no matter how small it is.
@@ -116,11 +116,12 @@ It is important to understand that the probabilities of these observations
 can, in themselves, be a product of a similar reasoning structure.
 For example, the `refs "parser" string` could come from a Jaro–Winkler distance,
 `Checks ASCII` from symbolic execution, `Calls atoi` could be checked statically,
-and `Loop breaks for \0` was maybe set manually by the user.
-
-You quickly see that one can build reasoning networks like that.
-Of course, these don't need to use these naive computations of weighting and summing probabilities.
+and `Loop breaks for \0` was maybe set manually by the user. {{<footnote "A.k.a information integration: https://en.wikipedia.org/wiki/Information_integration">}}
+Of course, the network's rules don't need to use these naive computations of weighting and summing probabilities.
 Bayesian networks, Markov chains, or whatever you can implement in code are possible.
+
+You quickly see that one can build pretty complex reasoning networks like that.
+Changing their results the more observations happen.
 
 In the end, this is what a reverse engineer does.
 
@@ -194,13 +195,16 @@ Nonetheless, I believe it is essential to concern ourselves with it:
 
 ### Core implementations
 
-- Implementing a knowledge base (KB) or knowledge representation storing all observed facts, detected patterns,
-  and rules.
+- Implementing a knowledge base (KB), a _knowledge representation storage_, for:
+  all observed facts, detected patterns, and inference rules.
   - How is it represented: table-like (row-, column-oriented), graph, hypergraph?
+  - What implementations already exist? Are they maintained and somewhat production ready (very important category)?
+    What pros and cons do they have? For what reasoning structures do they allow (predicate logic, probabilistic, modality)?
 - Implementing (or forking) a language for defining facts, probabilistic rules,
   and inductions from other facts and rules.
-  - Provide common reasoning structures (Bayes, Markov chains, ...)
-- Performance: Implementations must be reasonably gentle with resources and
+  - Provide implementation of common reasoning structures (Bayes, Markov chains, predicate logic, algebra, analysis?...)
+  - Can the language be extended if needed?
+- **Performance**: Implementations must be reasonably gentle with resources and
   be designed to allow for improvements.
 
 ### Specific use case solutions
@@ -208,7 +212,7 @@ Nonetheless, I believe it is essential to concern ourselves with it:
 - Rule-based classification defined by our language
   - Tail calls
   - Type inference from sampled observations
-- User-defined point of view.
+- User-defined point of view, [Modality](https://en.wikipedia.org/wiki/Modality_%28semantics%29) (what if X would be Y?).
   If a user gives another a posteriori probability for certain observations
   (e.g., a write memory access at address `a` increases the probability of unintended behavior by `p`),
   recompute the results with that probability assumed.
@@ -259,11 +263,12 @@ Define the problem space, the solution space, and add subcategories for the rese
 
 - [Email](mailto:core@rizin.re)
 - [Mattermost](https://im.rizin.re)
+  - Specifically the [research channel](https://im.rizin.re/rizinorg/channels/research)
 
 ### Tasks
 
+- Search for and add articles to the reading list; very briefly point out why they are of interest.
 - Correct mistakes, point out errors, report unclear explanations.
-- Search for and add articles to the reading list; explain why they are of interest.
 - Sort papers and classify them by importance.
 - Read a paper and write a blog-post-like summary that condenses the idea and
   interprets it with respect to software reverse engineering.
@@ -272,6 +277,7 @@ Define the problem space, the solution space, and add subcategories for the rese
 I hope it is needless to say, but:
 No AI allowed at this stage.
 Understanding is the target, not generating.
+Especially, because we don't know yet, if LLMs have a semantic understanding of the things they generate.
 
 ## Related work
 
@@ -279,4 +285,10 @@ Understanding is the target, not generating.
   The search term can be a vague description ("TLS handshake"); then matching functions
   are returned. The user has control over the similarity (uncertainty) level of the matching.
 
+---
+
 {{< citation_list "References" >}}
+
+---
+
+{{< footnote_list "Footnotes" >}}
