@@ -12,8 +12,6 @@ Wikionary {{< citation "Abstractus2025" >}}:
 >  1. (figuratively) diverted from, having been diverted from
 >  1. (Medieval Latin, by extension) abstract (rather than concrete)
 
-### Abstractions and relations
-
 - abstractions and relations {{< citation "pollardWhatAbstraction1987" >}} and their modality.
 - the relations between abstractions are together again abstractions.
 - Which can stand in relation.
@@ -21,7 +19,11 @@ Wikionary {{< citation "Abstractus2025" >}}:
 - The initial abstractions are just assumed to be a posteriori.
 But people should be able to replace them with a priori knowledge (which are inferred from a posteriori knowledge).
 
-### Uncertainty and modality
+### Believe, Uncertainty, and modality
+
+- Lockean thesis and the Lottery-Paradox {{<citation leitgebStabilityTheoryBelief2014>}} {{<citation huberDegreesBelief2009>}}
+  - Lottery paradox for our use case: There is a 99% chance that each X isn't Y, but I am certain that at least one X must be a Y.
+    I am absolutely certain that the binary reads a file, but the reasoning gave for every code region a 99% chance that it isn't. What to do with that?
 
 - Each abstraction and relation is only true with a certain probability and certainty.
   - The reverse engineers a posteriori knowledge is not the same as the developers had.
@@ -35,7 +37,11 @@ But people should be able to replace them with a priori knowledge (which are inf
 - Writing good abstractions and relations is the hard part.
   - How do we know if an abstraction is useful/good/provides something?
 - Exploring which abstractions and relations make sense.
-- Best case it can be explored and controlled by a machine agent with some intention.
+
+- **reasoning methods**: logic, probabilistic axioms, Bayes, Markov, what else?
+  - Give examples for each of them.
+  - How could they be applied?
+  - What can they represent, what can they not?
 
 ----
 
