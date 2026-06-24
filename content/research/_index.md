@@ -27,37 +27,41 @@ This informal definition reflects well what most people understand of RE today.
 But more importantly, it shows clearly a long-standing assumption that the reasoning process of the
 researcher, the algorithms, or the tools used are of a **deductive** nature.
 
-Being deductive usually means inferring conclusions from premises by using first- or higher-order logic.
+Deduction usually means inferring conclusions from premises by using a reasoning
+system (usually logic) which ensures the truth of the conclusions, if the premises are also true.
 This process is formally very strict.
-Given a set of premises, one can only use these logical operations to reach conclusions.
-Commonly, deduction doesn't allow for uncertainty in the answer an algorithm gives or does not give.
+Given a set of premises one can only use these reasoning steps (logic operations) to reach a True/False conclusion.
+Commonly, deduction doesn't allow for uncertainty (possibly true, unlikely true) in the conclusion.
 
-Of course, this is not the reality.
-All researchers work with hypotheses and educated guesses. Algorithms like
-value set analysis (VSA) overestimate the values of data objects.
-Those methods are inductive by nature. They infer results from observations
-and conclude that they are "likely" or "unlikely" true.
+Of course, this is not how reasoning works in reality.
+All researchers work with hypotheses and educated guesses.
+Algorithms like value set analysis (VSA) overestimate the values of data objects.
+And techniques like ASLR are specifically invented to add uncertainty to exploit writers' premises.
+Some algorithms sample control-flow graph (CFG) paths {{< citation zhangRevampingBinaryAnalysis2023 >}} for dynamic analysis.
+Others simply throw decompiled code into a large language model (LLM) and let it annotate.
 
-There is more emerging research on inductive algorithms allowing
-for uncertainty in their results. Be it a simple sampling of
-control-flow graph (CFG) paths {{< citation zhangRevampingBinaryAnalysis2023 >}} for dynamic analysis
-or throwing decompiled code into a large language model (LLM) and letting it annotate it.
+In short, plenty of reasoning methods in RE are inductive by nature.
+They do infer results from observations and premises, but conclude that they are "likely" or "unlikely" true.
 
 These inductive methods are useful because, as reverse engineers, we struggle by definition with the
 lack of information we are trying to regain.
 And uncertain results can be exceptionally useful if the alternatives are
 no results at all or if it is computationally unfeasible to restore them.
 
-More importantly, inductive methods are suitable for complexity.
-Software is inherently complex.
-It is simply impossible for a human to understand every moving part of a single binary,
-no matter how small it is.
+But barely any tools or algorithms make the uncertainty transparent.
+Let alone letting the researcher control the thresholds of it.
+The RE tool provides an answer.
+What the uncertainty of that answer is or where exactly uncertainty slipped in, is not reported.
+
+Reverse Engineering is inductive reasoning, but the tools provided are built with deductive
+assumptions.
+But aren't inductive methods, specifically targeted at inductive problems, suitable for complexity?
 
 A high-level and abstract representation of the binary, even if wrong in the details, brings value.
 And yet, most RE tools give you only magnifying glasses, not a map.
 
 With this open research effort, we would like to change that.
-Build real-world applicable maps, so you know where to look with your magnifying glass.
+Building maps, so you can choose where to look with your magnifying glass.
 
 ## On Restoring Knowledge
 
