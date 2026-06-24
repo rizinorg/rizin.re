@@ -193,6 +193,9 @@ Nonetheless, I believe it is essential to concern ourselves with it:
 
 ### Human<>Machine Interaction
 
+- Whatever the final implementation looks like, it absolutely **must be** intuitive to use.
+  Interaction cannot mean felt friction. Because every piece of mental work going
+  into figuring out how the tool can do X, is not spent on the actual research problem of the user.
 - Semantic search. Type text, get objects served for that category.
 - Multiple representations of knowledge.
   - the language, names, graphs, heat maps, plots, diagrams, highlights in assembly, what else?
@@ -271,6 +274,7 @@ Define the problem space, the solution space, and add subcategories for the rese
 
 ### Tasks
 
+- How can a user interface and interaction look like? How can it be made as frictionless as possible?
 - Search for and add articles to the reading list; very briefly point out why they are of interest.
 - Correct mistakes, point out errors, report unclear explanations.
 - Sort papers and classify them by importance.
