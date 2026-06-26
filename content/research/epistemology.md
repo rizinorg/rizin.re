@@ -1,23 +1,56 @@
 # Epistemology
 
-## Abstractions, Relations, and their modality
+Our task here is essentially to make reasoning computable.
+For that we need to consider what we consider _reasoning_ to be, how it
+leads to knowledge, how we model it, and how we implement it.
 
-**Is abstraction the correct term fr what is described below?**
+By taking philosophy as a primary starting point, instead of AI research,
+I hope we open up the space of ideas.
 
-Wikionary {{< citation "Abstractus2025" >}}:
+Even if philosophical theories are usually not as strictly stated as
+computer science ones, analytically philosophy can already be specific enough
+to see characteristics of interest for us.
 
-> abstractus (feminine abstracta, neuter abstractum, adverb abstractiter); first/second-declension participle
->  1. drawn away from, having been drawn away from
->  1. alienated from, having been alienated from
->  1. (figuratively) diverted from, having been diverted from
->  1. (Medieval Latin, by extension) abstract (rather than concrete)
+Take Russel's Denotation Theory {{< citation russellDenoting1905 >}} as example.
+It essentially describes propositional functions {{<citation PropositionalFunction2025>}}.
 
-- abstractions and relations {{< citation "pollardWhatAbstraction1987" >}} and their modality.
-- the relations between abstractions are together again abstractions.
-- Which can stand in relation.
-- And so forth.
-- The initial abstractions are just assumed to be a posteriori.
-But people should be able to replace them with a priori knowledge (which are inferred from a posteriori knowledge).
+Let's take one example from his essay:
+
+> E.g., it is true (at least we will suppose so) that the earth revolves round the sun,
+> and false that the sun revolves round the earth; hence “the revolution of the earth round the sun” denotes an
+> entity, while “the revolution of the sun round the earth” does not denote an entity.!
+
+So for
+\[
+\begin{aligned}
+E(x) := x \text{ is earth} \\
+S(x) := x \text{ is sun} \\
+a R b := a \text{ orbits around } b \\
+\exists x, y (S(y) \land E(x) \land \forall z (E(z) \to z = x \oplus S(z) \to z = y)) \land x R y)
+\end{aligned}
+\]
+
+## Bayes, The Stability Theory of Belief, Additive Logic of Epistemic Reasons {{< citation LeitgebAdditiveLogicReason2026 >}}
+
+
+<!-- ## Common technical terms from a philosophical angle: Abstractions, Relations -->
+
+<!-- **Is abstraction the correct term for what is described below?** -->
+
+<!-- Wikionary {{< citation "Abstractus2025" >}}: -->
+
+<!-- > abstractus (feminine abstracta, neuter abstractum, adverb abstractiter); first/second-declension participle -->
+<!-- >  1. drawn away from, having been drawn away from -->
+<!-- >  1. alienated from, having been alienated from -->
+<!-- >  1. (figuratively) diverted from, having been diverted from -->
+<!-- >  1. (Medieval Latin, by extension) abstract (rather than concrete) -->
+
+<!-- - abstractions and relations {{< citation "pollardWhatAbstraction1987" >}} and their modality. -->
+<!-- - the relations between abstractions are together again abstractions. -->
+<!-- - Which can stand in relation. -->
+<!-- - And so forth. -->
+<!-- - The initial abstractions are just assumed to be a posteriori. -->
+<!-- But people should be able to replace them with a priori knowledge (which are inferred from a posteriori knowledge). -->
 
 ### Believe, Uncertainty, and modality
 
