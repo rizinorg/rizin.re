@@ -1,4 +1,12 @@
-# Epistemology
+---
+author: "Rot127"
+title: "Epistemology"
+layout: "blog"
+tags: ["rizin", "research", "ai", "binary analysis", "reverse engineering"]
+
+ShowToc: true
+TocOpen: false
+---
 
 Our task here is essentially to make reasoning computable.
 For that we need to consider what we consider _reasoning_ to be, how it

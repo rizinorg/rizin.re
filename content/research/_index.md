@@ -1,7 +1,7 @@
 ---
 author: "Rot127"
 title: "Research"
-layout: "single"
+layout: "blog"
 url: "/research"
 summary: "research"
 tags: ["rizin", "research", "ai", "binary analysis", "reverse engineering"]

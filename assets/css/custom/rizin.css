@@ -123,6 +123,11 @@
   padding: 0 12.5vw 2vw;
 }
 
+.blog-single {
+  background: var(--main);
+  margin: 0 auto; /* Center */
+}
+
 /* Override */
 .header {
   padding-top: 10px;
@@ -442,6 +447,11 @@
 /* MEDIA */
 
 @media (min-width: 768px) {
+  /* Limit width of blog postes to make long text more readable. */
+  .blog-single {
+    width: 60%;
+  }
+
   .hero-section__top {
     flex-direction: row;
   }
