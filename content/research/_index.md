@@ -15,47 +15,74 @@ TocOpen: true
 These pages document our effort to develop new software reverse engineering (RE) methods
 focusing on fuzzy pattern recognition and inductive reasoning with code.
 
-## The Problem
+## The Problem of Computing Reasoning Methods
 
-The definition of "Reverse Engineering" (RE) on Wikipedia is (highlights added):
+TODO: Better intro sentence
 
-> Reverse engineering [...] is a process or method through which one attempts
-> to understand through **deductive** reasoning how a previously made device, process,
-> system, or piece of software accomplishes a task with very little (if any) insight into exactly how it does so.
+Basic algorithms are often of deductive nature.
+They _necessarily_ need all premises to be true so their conclusions are true as well.
+That is the case for the most fundamental tools like a disassembler,
+which gives garbage if a wrong architecture was selected, and good output for the correct one.
+Another example is basic control flow analysis: if a `jump 0x7000` instruction is located in an `r-x` map,
+it is pretty much guaranteed jumping to `0x7000`, when executed.
 
-This informal definition reflects well what most people understand of RE today.
-But more importantly, it shows clearly a long-standing assumption that the reasoning process of the
-researcher, the algorithms, or the tools used are of a **deductive** nature.
+While these deductive methods are a center piece in RE they are unable to provide results,
+if one or more premises are unknown or uncertain. If our `jump 0x7000` is located in an
+`rwx` map, suddenly we can't be sure anymore that it actually jumps to that address.
+Because at the time of execution the instruction could have been overwritten.
+There simply is no guaranteed clear answer our premises infer.
+We simply miss the premises is "does anything write to the location where `jump 0x7000` is?" and
+our deductive algorithm fails.
 
-Deduction usually means inferring conclusions from premises by using a reasoning
-system (usually logic) which ensures the truth of the conclusions, if the premises are also true.
-This process is formally very strict.
-Given a set of premises one can only use these reasoning steps (logic operations) to reach a True/False conclusion.
-Commonly, deduction doesn't allow for uncertainty (possibly true, unlikely true) in the conclusion.
+Of course, that doesn't stop us from inferring valid conclusions.
+The process of inferring just gets more fuzzy from here on.
 
-Of course, this is not how reasoning works in reality.
-All researchers work with hypotheses and educated guesses.
-Algorithms like value set analysis (VSA) overestimate the values of data objects.
-And techniques like ASLR are specifically invented to add uncertainty to exploit writers' premises.
-Some algorithms sample control-flow graph (CFG) paths {{< citation zhangRevampingBinaryAnalysis2023 >}} for dynamic analysis.
-Others simply throw decompiled code into a large language model (LLM) and let it annotate.
+Researchers work with hypotheses, educated guesses, or choose the most likely result from their point of view.
+That kind of reasoning is called abduction. Abduction no longer makes it _necessary_ that inferring
+from true premises leads to a true conclusion.\
+If we give evidence `E` and hypothesis `H1, H2, ..., Hn` to an abductive reasoning process,
+it chooses hypothesis `Hi` which best explains `E`, or which seems closest to the truth. {{<citation douvenAbduction2025>}}
+{{< footnote "The exact definition is part of the philosophical debate." >}}
+This already helps to argue with a lack of information, but these methods also have problems.\
+How do we know if `Hi` is the _best_ explanation for `E`?\
+What does _best_ even mean?\
+And even if we somehow know that, what happens if all our hypothesis we have are a bad lot?
+It is easy to imagine a novice researcher looking at some evidence and struggling to come up with a useful hypothesis.
+Simply because she misses experience.
 
-In short, plenty of reasoning methods in RE are inductive by nature.
-They do infer results from observations and premises, but conclude that they are "likely" or "unlikely" true.
+Lastly, there are the inductive reasoning methods.
+Samples
 
-These inductive methods are useful because, as reverse engineers, we struggle by definition with the
+TODO
+
+EXAMPLE: On the algorithm side we have value set analysis (VSA) which overestimates the
+values of data objects to infer a "close enough" result.
+
+
+
+
+In short, plenty of reasoning methods in RE are abductive or inductive by nature.
+They do infer results from evidence or several observations and conclude that they are "likely" or "unlikely" true.
+
+Inductive and abducctive methods are useful because, as reverse engineers, we struggle by definition with the
 lack of information we are trying to regain.
 And uncertain results can be exceptionally useful if the alternatives are
 no results at all or if it is computationally unfeasible to restore them.
 
 But barely any tools or algorithms make the uncertainty transparent.
 Let alone letting the researcher control the thresholds of it.
-The RE tool provides an answer.
-What the uncertainty of that answer is or where exactly uncertainty slipped in, is not reported.
 
-Reverse Engineering is inductive reasoning, but the tools provided are built with deductive
-assumptions.
-But aren't inductive methods, specifically targeted at inductive problems, suitable for complexity?
+The abductive reasoning of experts also stays in they head or the notebook of the researcher.
+For the lack of a method to preserve it.
+
+A huge part of RE is abductive and inductive reasoning, but the tools we user are often
+of deductive nature or are unable to represent our reasoning computationally.
+
+The common RE tools don't seem to match the 
+
+- Two fold:
+  - Make reasoning more general computable
+  - Enable statistical methods
 
 A high-level and abstract representation of the binary, even if wrong in the details, brings value.
 And yet, most RE tools give you only magnifying glasses, not a map.

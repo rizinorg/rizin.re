@@ -40,6 +40,8 @@ a R b := a \text{ orbits around } b \\
 
 ## Bayes, The Stability Theory of Belief, Additive Logic of Epistemic Reasons {{< citation LeitgebAdditiveLogicReason2026 >}}
 
+- What are the limits of these theories. Is that how people actually reason? {{< citation douvenRoleExplanatoryConsiderations2015 >}}
+  
 
 <!-- ## Common technical terms from a philosophical angle: Abstractions, Relations -->
 
