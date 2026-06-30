@@ -1,9 +1,17 @@
-{{ $val := .Get 0 }}
+{{ $cit_id := .Get 0 }}
+{{ $comment := .Get 1 }}
 {{ $cits := .Page.Store.Get "citations" }}
 
-{{ if isset $cits $val }}
+{{ $key := "" }}
+{{ if eq $comment "" }}
+{{ $key = $cit_id }}
+{{ else }}
+{{ $key = printf "%s - %s" $cit_id $comment }}
+{{ end }}
 
-<a class="citation_id" href="#{{ $val }}">(c{{ index $cits $val }})</a>
+{{ if isset $cits $key }}
+
+<a class="citation_id" href="#{{ $cit_id }}">(c{{ index $cits $key }})</a>
 
 {{ else }}
 
@@ -12,9 +20,9 @@
 {{ $id = len $cits }}
 {{ end }}
 
-{{ .Page.Store.SetInMap "citations" $val $id }}
+{{ .Page.Store.SetInMap "citations" $key $id }}
 
-<a class="citation_id" href="#{{ $val }}">(c{{ $id }})</a>
+<a class="citation_id" href="#{{ $cit_id }}">(c{{ $id }})</a>
 
 {{ end }}
 
