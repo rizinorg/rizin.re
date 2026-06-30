@@ -10,14 +10,9 @@ ShowToc: true
 TocOpen: true
 ---
 
-# Fuzzy Reverse Engineering
+# The Gap in Computing Reasoning
 
-These pages document our effort to develop new software reverse engineering (RE) methods
-focusing on fuzzy pattern recognition and inductive reasoning with code.
-
-## The Problem of Computing Reasoning Methods
-
-TODO: Better intro sentence
+TODO: Better intro sentence. Possibly be abstract like.
 
 Basic algorithms are often of deductive nature.
 They _necessarily_ need all premises to be true so their conclusions are true as well.
@@ -41,58 +36,71 @@ Researchers work with hypotheses, educated guesses, or choose the most likely re
 That kind of reasoning is called abduction. Abduction no longer makes it _necessary_ that inferring
 from true premises leads to a true conclusion.\
 If we give evidence `E` and hypothesis `H1, H2, ..., Hn` to an abductive reasoning process,
-it chooses hypothesis `Hi` which best explains `E`, or which seems closest to the truth. {{<citation douvenAbduction2025>}}
+it chooses hypothesis `Hi` which best explains `E`, or which seems closest to the truth.
 {{< footnote "The exact definition is part of the philosophical debate." >}}
 This already helps to argue with a lack of information, but these methods also have problems.\
-How do we know if `Hi` is the _best_ explanation for `E`?\
+How do we know if `Hi` is the _best_ explanation for `E`?
 What does _best_ even mean?\
-And even if we somehow know that, what happens if all our hypothesis we have are a bad lot?
-It is easy to imagine a novice researcher looking at some evidence and struggling to come up with a useful hypothesis.
+And even if we somehow know that, what happens if all our hypothesis we have are a bad lot? {{<citation douvenAbduction2025 >}}
+It is easy to imagine a novice researcher looking at some evidence and struggling to come up with any useful hypothesis.
 Simply because she misses experience.
 
-Lastly, there are the inductive reasoning methods.
-Samples
+And lastly, there are the inductive reasoning methods.
+These are usually understood as being of cumulative nature.
+The more observations we collect as evidence, the more
+likely our hypothesis is true or false. {{< citation eagleProbabilityInductiveLogic2025 "Chapter 1.5">}}\
+There are a few algorithms which have that cumulative nature.\
+Any statistical algorithm of course. But also Value Set Analysis (VSA) {{<citation balakrishnanAnalyzingMemoryAccesses2004>}} comes to mind.
+It makes with every new observation the possible values of a memory location get more or less certain.\
+In daily life we would simply call this reasoning "generalization from observations and experiences".
+And of course inductive methods suffer from the same problem as generalization does:
+It is simply not obvious which observations can count as evidence and which not. {{< citation eagleProbabilityInductiveLogic2025 "Chapter 1.5">}} {{<citation wikipediaRavenParadox2026>}}
 
-TODO
+I think we can all see how these modes of reasoning are applied in RE.
+And sketching them out so explicitly it seems obvious that _most_ reasoning in RE is
+either abductive or inductive.
+Sure, it happens in the head and notebook of the researcher. But they are nontheless dominant!
 
-EXAMPLE: On the algorithm side we have value set analysis (VSA) which overestimates the
-values of data objects to infer a "close enough" result.
-
-
-
-
-In short, plenty of reasoning methods in RE are abductive or inductive by nature.
-They do infer results from evidence or several observations and conclude that they are "likely" or "unlikely" true.
-
-Inductive and abducctive methods are useful because, as reverse engineers, we struggle by definition with the
-lack of information we are trying to regain.
+As researchers we struggle by definition with the lack of information we are trying to regain.
 And uncertain results can be exceptionally useful if the alternatives are
-no results at all or if it is computationally unfeasible to restore them.
+no results at all or if they are computationally unfeasible.
+So we trade uncertainty for answers. We can grasp the bigger picture by letting go of
+the strictness of deduction. Fuzzy reasoning can provide clarity and orientation in uncertainty.
 
-But barely any tools or algorithms make the uncertainty transparent.
+And yet, here we are. The tools nowadays don't allow us to encode our experience in code.
+It is too fuzzy.
+They don't allow us to share intuition in a way that it is reusable by others.
+The scripts and plugins almost always handle the specific case, not the general one we have in our head.
+And by sharing the special case we share the deductive rules - which fail the moment a premise like a hardcoded offset changes.
+We can't share the general case from our head so easily.
+Because sharing it means we have to write it down in computable form.
+
+_So why can't we make our fuzzy intuition and experience computable?_
+
+The answer is quite simple in our understanding:
+There are simply not that many tools which allow it.
+Most tools are not built to work with answers like "maybe", "possibly", and "a likelihood of p".
+Not many algorithms use sampling and statistics. 
+And even the ones which do rarely make the uncertainty transparent.
 Let alone letting the researcher control the thresholds of it.
 
-The abductive reasoning of experts also stays in they head or the notebook of the researcher.
+The skill of fuzzy reasoning of experts stays their heads.
 For the lack of a method to preserve it.
 
-A huge part of RE is abductive and inductive reasoning, but the tools we user are often
-of deductive nature or are unable to represent our reasoning computationally.
+A huge part of RE is abductive and inductive, but there is no way to express it _computationally_ so it can be shared.
 
-The common RE tools don't seem to match the 
+Having a fuzzy understanding of the patterns in a binary, even if wrong in the details, brings value.
+That intuition is a map helping with the exploration, finding the places one wants to look with the magnifying glass.
 
-- Two fold:
-  - Make reasoning more general computable
-  - Enable statistical methods
-
-A high-level and abstract representation of the binary, even if wrong in the details, brings value.
-And yet, most RE tools give you only magnifying glasses, not a map.
+Expressing intuition in computable form enables us to share it.
+Sharing our intuition means sharing our maps, so others can use them to find.
+To find the places quicker where they take out their magnifying glass.
 
 With this open research effort, we would like to change that.
-Building maps, so you can choose where to look with your magnifying glass.
 
 ## On Restoring Knowledge
 
-To give a concrete example of how such an inductive method can look,
+To give a concrete example of how such an inductive method could look,
 consider the following.
 
 ### Example: Classifying a string parser function
