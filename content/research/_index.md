@@ -12,22 +12,33 @@ TocOpen: true
 
 # The Gap in Computing Reasoning
 
-TODO: Better intro sentence. Possibly be abstract like.
+Most of the tools we use in reverse engineering (RE) of computer programs are from the 2000s and earlier.
+Maybe they were implemented more recently, but the algorithms and ideas are relatively
+(for computer science time spans) old.
+The basics were always the same: a disassembler, some flow and type analysis, optionally
+a decompiler and a debugger. And besides the note book and the mind of the researcher,
+that is essentially it.
 
-Basic algorithms are often of deductive nature.
+But gradually restoring knowledge over the software at hand is more than just applying tools.
+The experience of the researcher, their systematic way of detangleing the information
+and making sense of it is the core of the work.\
+_So why is it that we don't have more tools which mimic it?_
+
+The tools and algorithms we use do automation. They are of deductive nature,
+computing from one set of known facts another set of facts.
 They _necessarily_ need all premises to be true so their conclusions are true as well.
-That is the case for the most fundamental tools like a disassembler,
-which gives garbage if a wrong architecture was selected, and good output for the correct one.
-Another example is basic control flow analysis: if a `jump 0x7000` instruction is located in an `r-x` map,
-it is pretty much guaranteed jumping to `0x7000`, when executed.
+That is the case for a disassembler, which outputs garbage
+if the wrong bytes are fed in, and good output for a correct ones.
+It is also true for basic control flow analysis: if a `jump 0x7000` instruction is located in an `r-x` map,
+it is pretty much guaranteed to jump to `0x7000` when executed.
 
 While these deductive methods are a center piece in RE they are unable to provide results,
 if one or more premises are unknown or uncertain. If our `jump 0x7000` is located in an
 `rwx` map, suddenly we can't be sure anymore that it actually jumps to that address.
 Because at the time of execution the instruction could have been overwritten.
 There simply is no guaranteed clear answer our premises infer.
-We simply miss the premises is "does anything write to the location where `jump 0x7000` is?" and
-our deductive algorithm fails.
+We simply miss the premise "does anything write to the location where `jump 0x7000` is?".
+And with it our deductive algorithm fails.
 
 Of course, that doesn't stop us from inferring valid conclusions.
 The process of inferring just gets more fuzzy from here on.
@@ -37,11 +48,12 @@ That kind of reasoning is called abduction. Abduction no longer makes it _necess
 from true premises leads to a true conclusion.\
 If we give evidence `E` and hypothesis `H1, H2, ..., Hn` to an abductive reasoning process,
 it chooses hypothesis `Hi` which best explains `E`, or which seems closest to the truth.
+{{<citation douvenAbduction2025 >}}
 {{< footnote "The exact definition is part of the philosophical debate." >}}
 This already helps to argue with a lack of information, but these methods also have problems.\
 How do we know if `Hi` is the _best_ explanation for `E`?
 What does _best_ even mean?\
-And even if we somehow know that, what happens if all our hypothesis we have are a bad lot? {{<citation douvenAbduction2025 >}}
+And even if we somehow know that, what happens if all our hypothesis we have are a bad lot? {{<citation douvenAbduction2025 >}}\
 It is easy to imagine a novice researcher looking at some evidence and struggling to come up with any useful hypothesis.
 Simply because she misses experience.
 
@@ -49,9 +61,9 @@ And lastly, there are the inductive reasoning methods.
 These are usually understood as being of cumulative nature.
 The more observations we collect as evidence, the more
 likely our hypothesis is true or false. {{< citation eagleProbabilityInductiveLogic2025 "Chapter 1.5">}}\
-There are a few algorithms which have that cumulative nature.\
-Any statistical algorithm of course. But also Value Set Analysis (VSA) {{<citation balakrishnanAnalyzingMemoryAccesses2004>}} comes to mind.
-It makes with every new observation the possible values of a memory location get more or less certain.\
+There are a few (often statistical) algorithms doing that.
+Think of Value Set Analysis (VSA): {{<citation balakrishnanAnalyzingMemoryAccesses2004>}}
+with every new observation the possible values of a memory location get more or less certain.\
 In daily life we would simply call this reasoning "generalization from observations and experiences".
 And of course inductive methods suffer from the same problem as generalization does:
 It is simply not obvious which observations can count as evidence and which not. {{< citation eagleProbabilityInductiveLogic2025 "Chapter 1.5">}} {{<citation wikipediaRavenParadox2026>}}
@@ -84,17 +96,16 @@ Not many algorithms use sampling and statistics.
 And even the ones which do rarely make the uncertainty transparent.
 Let alone letting the researcher control the thresholds of it.
 
-The skill of fuzzy reasoning of experts stays their heads.
-For the lack of a method to preserve it.
-
 A huge part of RE is abductive and inductive, but there is no way to express it _computationally_ so it can be shared.
+The non-deductive reasoning stays in the researcher's head.
+For the lack of a method to preserve it.
 
 Having a fuzzy understanding of the patterns in a binary, even if wrong in the details, brings value.
 That intuition is a map helping with the exploration, finding the places one wants to look with the magnifying glass.
 
 Expressing intuition in computable form enables us to share it.
-Sharing our intuition means sharing our maps, so others can use them to find.
-To find the places quicker where they take out their magnifying glass.
+Sharing our intuition means sharing our maps, so others can use them to find the places
+quicker to use their magnifying glass.
 
 With this open research effort, we would like to change that.
 
