@@ -33,8 +33,8 @@ It is also true for basic control flow analysis: if a `jump 0x7000` instruction 
 it is pretty much guaranteed to jump to `0x7000` when executed.
 
 While these deductive methods are a center piece in RE they are unable to provide results,
-if one or more premises are unknown or uncertain. If our `jump 0x7000` is located in an
-`rwx` map, suddenly we can't be sure anymore that it actually jumps to that address.
+if one or more premises are unknown or uncertain but needed for a conclusion.
+If our `jump 0x7000` is located in an `rwx` map, suddenly we can't be sure anymore that it actually jumps to that address.
 Because at the time of execution the instruction could have been overwritten.
 There simply is no guaranteed clear answer our premises infer.
 We simply miss the premise "does anything write to the location where `jump 0x7000` is?".
