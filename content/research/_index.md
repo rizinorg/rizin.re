@@ -58,9 +58,10 @@ It is easy to imagine a novice researcher looking at some evidence and strugglin
 Simply because she misses experience.
 
 And lastly, there are the inductive reasoning methods.
-These are usually understood as being of cumulative nature.
+These are usually understood as being of enumerative or cumulative nature.
 The more observations we collect as evidence, the more
-likely our hypothesis is true or false. {{< citation eagleProbabilityInductiveLogic2025 "Chapter 1.5">}}\
+likely our hypothesis is true or false. {{< footnote "Of course this doesn't exclude the case where a single observation can flip the whole conclusion. If we observe 1 million white swans, there is a high probability that all swans are white. Of course only until we observed single black swan." >}}
+{{< citation eagleProbabilityInductiveLogic2025 "Chapter 1.5">}}\
 There are a few (often statistical) algorithms doing that.
 Think of Value Set Analysis (VSA): {{<citation balakrishnanAnalyzingMemoryAccesses2004>}}
 with every new observation the possible values of a memory location get more or less certain.\
