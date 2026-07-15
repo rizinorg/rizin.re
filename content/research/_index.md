@@ -110,6 +110,28 @@ quicker to use their magnifying glass.
 
 With this open research effort, we would like to change that.
 
+## Expert Systems
+
+As many of you could already guess, the reasoning problem is essentially what people
+worked on in the 80s (and onward).
+It was called reasoning systems and 
+
+TODO: XXXXXXXXX
+
+The systems we try to research and build here are commonly called
+[semantic reasoners](https://en.wikipedia.org/wiki/Semantic_reasoner) or [expert systems](https://en.wikipedia.org/wiki/Expert_system).
+
+Expert systems were a big topic in the XXs for a while but went out of favour due to a few reasons.
+
+The reasons commonly cited were:
+- Inferences with many million rules can be computationally too expansive (SAT solvers).
+- Someone has to write the inference rules and they have to be maintained, a hard task (https://en.wikipedia.org/wiki/Knowledge_acquisition).
+- It is unclear what exactly can be understood as valid inference (see paragraph about induction above).
+- Probably a few more.
+
+It is important for us here to learn from these issues.
+While we do not aim to build an expert system in the 
+
 ## On Restoring Knowledge
 
 To give a concrete example of how such an inductive method could look,
