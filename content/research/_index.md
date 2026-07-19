@@ -110,27 +110,42 @@ quicker to use their magnifying glass.
 
 With this open research effort, we would like to change that.
 
-## Expert Systems
+## Knowledge Engineering & Expert Systems
 
-As many of you could already guess, the reasoning problem is essentially what people
-worked on in the 80s (and onward).
-It was called reasoning systems and 
+As many of you could already guess, the problem is essentially what many
+call knowledge engineering, expert {{ citation "ExpertSystem2026" }}, or semantic reasoning systems {{ citation "SemanticReasoner2026" }}.
 
-TODO: XXXXXXXXX
-
-The systems we try to research and build here are commonly called
-[semantic reasoners](https://en.wikipedia.org/wiki/Semantic_reasoner) or [expert systems](https://en.wikipedia.org/wiki/Expert_system).
-
-Expert systems were a big topic in the XXs for a while but went out of favour due to a few reasons.
+These topics started to become very prominent in the 80s onward
+but lost interest due to a few reasons.
 
 The reasons commonly cited were:
-- Inferences with many million rules can be computationally too expansive (SAT solvers).
-- Someone has to write the inference rules and they have to be maintained, a hard task (https://en.wikipedia.org/wiki/Knowledge_acquisition).
+- Inferences with many million rules can be computationally too expensive (e.g., SAT solvers).
+- Someone has to write the inference rules, and they have to be maintained,
+  a hard task because it needs experts' knowledge.
+  Sharing that before the internet wasn't easy. {{ citation "KnowledgeAcquisition2026" }}
 - It is unclear what exactly can be understood as valid inference (see paragraph about induction above).
-- Probably a few more.
 
-It is important for us here to learn from these issues.
-While we do not aim to build an expert system in the 
+It is important for us to learn from these issues and answer them
+in a satisfactory manner.
+Whether our answers translate to solutions remains to be seen.
+
+### A word about AI/LLMs
+
+Current reports show that LLMs seem very much capable of finding unintended behavior in source code.
+While no one can know how much better the models will become, we can assume that there will be improvement.
+
+Our effort here doesn't seek to replace LLMs.
+Quite the opposite, even.
+
+LLMs and, in effect, neural networks are a subset of knowledge engineering.
+We believe that neural networks will play a big role in the reverse engineering field, given
+the technology's ability to recognize requested patterns in complex data.
+
+We do believe, though, that neural networks shouldn't be seen as the
+"ultimate solution for everything."
+
+The targeted problem here is of a broadly knowledge-engineering nature,
+not (just) a question of how to connect neural networks together.
 
 ## On Restoring Knowledge
 
@@ -203,22 +218,6 @@ Except it is expressed in a computational form instead of scribbles in a noteboo
 ---
 
 For a more fundamental philosophical discussion of this process, see the [Epistemology](/research/epistemology) page.
-
-## A word about AI/LLMs
-
-Current reports show that LLMs seem very much capable of finding unintended behavior in source code.
-While no one can know how much better the models become, we can assume that there will be improvement.
-
-Our effort here doesn't seek to replace LLMs.
-Quite the opposite, even. We believe that neural networks will play a big role in the reverse engineering field given
-the technology's ability to recognize requested patterns in complex data.
-In this regard, our research overlaps with AI research.
-
-We do believe, though, that training models on more diverse inputs than just
-source code will yield much better results.
-
-Hence, making the reversed binary semantics more accessible in a form to train on
-is within the scope of this research.
 
 ## Solutions
 
