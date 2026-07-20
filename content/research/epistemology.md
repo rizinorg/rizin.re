@@ -10,11 +10,11 @@ TocOpen: false
 
 # Literature
 
-## Expected
+## Expected reading
 
-- Knowledge engineering: building cognitive assistants for evidence-based reasoning - Chapter 1 {{ citation KnowledgeEngineeringBuilding2016 "Chapter 1"}}
+- Knowledge engineering: building cognitive assistants for evidence-based reasoning - Chapter 1.1 to 1.4 {{< citation KnowledgeEngineeringBuilding2016 "Chapter 1" >}}
 
-## Recommended
+## Recommended reading
 
 - ...
 
@@ -78,6 +78,8 @@ Very, very new stuff
 
 Very, very, very new stuff.
 Possibly related to the "Stability Theory of Belief"
+
+### Fuzzy Probability and Logic
 
 ## Theory comparisons
 
