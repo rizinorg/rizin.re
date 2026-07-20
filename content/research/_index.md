@@ -206,7 +206,7 @@ For example, the `refs "parser" string` could come from a Jaro–Winkler distanc
 `Checks ASCII` from symbolic execution, `Calls atoi` could be checked statically,
 and `Loop breaks for \0` was maybe set manually by the user. {{<footnote "A.k.a information integration: https://en.wikipedia.org/wiki/Information_integration">}}
 Of course, the network's rules don't need to use these naive computations of weighting and summing probabilities.
-Bayesian networks, Markov chains, or whatever you can implement in code are possible.
+Bayesian networks, Baconian Probability, Markov chains, neural networks, or whatever you can implement in code are possible.
 
 You quickly see that one can build pretty complex reasoning networks like that.
 Changing their results the more observations happen.
@@ -277,7 +277,7 @@ Nonetheless, I believe it is essential to concern ourselves with it:
     What pros and cons do they have? For what reasoning structures do they allow (predicate logic, probabilistic, modality)?
 - Implementing (or forking) a language for defining facts, probabilistic rules,
   and inductions from other facts and rules.
-  - Provide implementation of common reasoning structures (Bayes, Markov chains, predicate logic, algebra, analysis?...)
+  - Provide implementation of common reasoning structures (Bayes, Baconian Probability, Stability Theory of Belief, Markov chains, predicate logic, algebra, analysis?...)
   - Can the language be extended if needed?
 - **Performance**: Implementations must be reasonably gentle with resources and
   be designed to allow for improvements.

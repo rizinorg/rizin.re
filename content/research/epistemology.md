@@ -8,8 +8,20 @@ ShowToc: true
 TocOpen: false
 ---
 
+# Literature
+
+## Expected
+
+- Knowledge engineering: building cognitive assistants for evidence-based reasoning - Chapter 1 {{ citation KnowledgeEngineeringBuilding2016 "Chapter 1"}}
+
+## Recommended
+
+- ...
+
+# Philosophy as Starting Point
+
 Our task here is essentially to make reasoning computable.
-For that we need to consider what we consider _reasoning_ to be, how it
+For that we need to consider what _reasoning_ is, how it
 leads to knowledge, how we model it, and how we implement it.
 
 By taking philosophy as a primary starting point, instead of AI research,
@@ -38,53 +50,40 @@ a R b := a \text{ orbits around } b \\
 \end{aligned}
 \]
 
-## Bayes, The Stability Theory of Belief, Additive Logic of Epistemic Reasons {{< citation LeitgebAdditiveLogicReason2026 >}}
+## Reasoning Theories
 
-- What are the limits of these theories. Is that how people actually reason? {{< citation douvenRoleExplanatoryConsiderations2015 >}}
-  
+Here we can add intros for each reasoning theory we took a look at.
+If you find a good introduction about one, explaining the theory well,
+it is possible to simply add a link to the resource here.
 
-<!-- ## Common technical terms from a philosophical angle: Abstractions, Relations -->
+It is not necessary to write yet another introduction if there are already plenty.
+But you must have read and understood the original work.
+Just adding a reference and assume it is good is not sufficient.
 
-<!-- **Is abstraction the correct term for what is described below?** -->
+Each theory should have computational examples attached.
 
-<!-- Wikionary {{< citation "Abstractus2025" >}}: -->
+TODO: Add link to repo
 
-<!-- > abstractus (feminine abstracta, neuter abstractum, adverb abstractiter); first/second-declension participle -->
-<!-- >  1. drawn away from, having been drawn away from -->
-<!-- >  1. alienated from, having been alienated from -->
-<!-- >  1. (figuratively) diverted from, having been diverted from -->
-<!-- >  1. (Medieval Latin, by extension) abstract (rather than concrete) -->
+### Bayes
 
-<!-- - abstractions and relations {{< citation "pollardWhatAbstraction1987" >}} and their modality. -->
-<!-- - the relations between abstractions are together again abstractions. -->
-<!-- - Which can stand in relation. -->
-<!-- - And so forth. -->
-<!-- - The initial abstractions are just assumed to be a posteriori. -->
-<!-- But people should be able to replace them with a priori knowledge (which are inferred from a posteriori knowledge). -->
+### Theory of Belief
 
-### Believe, Uncertainty, and modality
+### Baconian Probability
 
-- Lockean thesis and the Lottery-Paradox {{<citation leitgebStabilityTheoryBelief2014>}} {{<citation huberDegreesBelief2009>}}
-  - Lottery paradox for our use case: There is a 99% chance that each X isn't Y, but I am certain that at least one X must be a Y.
-    I am absolutely certain that the binary reads a file, but the reasoning gave for every code region a 99% chance that it isn't. What to do with that?
+### The Stability Theory of Belief
 
-- Each abstraction and relation is only true with a certain probability and certainty.
-  - The reverse engineers a posteriori knowledge is not the same as the developers had.
-    Because we don't know all inputs (source code, compiler, high level design, and intention) leading to that binary.
-- discovering relations between abstractions, also inherits some of the certainty and probability.
+Very, very new stuff
 
-## Reasoning - On restoring Knowledge
+### Additive Logic of Epistemic Reasons {{< citation LeitgebAdditiveLogicReason2026 >}}
 
-- We write new abstractions by defining new relations between existing abstractions.
-- A new abstraction emerges.
-- Writing good abstractions and relations is the hard part.
-  - How do we know if an abstraction is useful/good/provides something?
-- Exploring which abstractions and relations make sense.
+Very, very, very new stuff.
+Possibly related to the "Stability Theory of Belief"
 
-- **reasoning methods**: logic, probabilistic axioms, Bayes, Markov, what else?
-  - Give examples for each of them.
-  - How could they be applied?
-  - What can they represent, what can they not?
+## Theory comparisons
+
+- What are the limits of these theories.
+- Is that how people actually reason? {{< citation douvenRoleExplanatoryConsiderations2015 >}}
+- What can each of them do, what can they not?
 
 ----
 
