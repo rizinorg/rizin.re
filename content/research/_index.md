@@ -113,26 +113,21 @@ With this open research effort, we would like to change that.
 ## Knowledge Engineering & Expert Systems
 
 As many of you could already guess, the problem is essentially what many
-call knowledge engineering, expert {{< citation "ExpertSystem2026" >}}, or semantic reasoning systems {{< citation "SemanticReasoner2026" >}}.
+call knowledge engineering, expert systems {{< citation "ExpertSystem2026" >}},
+or semantic reasoning systems {{< citation "SemanticReasoner2026" >}}.
 
 These topics started to become very prominent in the 80s onward
-but lost interest due to a few reasons.
+and are now common techniques in many fields.
+SAT-solvers, software supporting strategic decisions in business or the military,
+or simply AI in games are all examples of that.
 
-The reasons commonly cited were:
-- Inferences with many million rules can be computationally too expensive (e.g., SAT solvers).
-- Someone has to write the inference rules, and they have to be maintained,
-  a hard task because it needs experts' knowledge.
-  Sharing that before the internet wasn't easy. {{< citation "KnowledgeAcquisition2026" >}}
-- It is unclear what exactly can be understood as valid inference (see paragraph about induction above).
-
-It is important for us to learn from these issues and answer them
-in a satisfactory manner.
-Whether our answers translate to solutions remains to be seen.
+Of course, in the field of knowledge engineering the hot topic currently are LLMs.
 
 ### A word about AI/LLMs
 
 Current reports show that LLMs seem very much capable of finding unintended behavior in source code.
-While no one can know how much better the models will become, we can assume that there will be improvement.
+While no one can know how much better the models will become,
+we can assume that there will be improvement.
 
 Our effort here doesn't seek to replace LLMs.
 Quite the opposite, even.
@@ -252,7 +247,6 @@ Nonetheless, I believe it is essential to concern ourselves with it:
 
 #### Ethics
 
-- Dual-use nature of RE technology.
 - Technology as a way to project power. Power for whom?
 - Everything here is done in the open.
 - Results fully open source.
@@ -272,6 +266,7 @@ Nonetheless, I believe it is essential to concern ourselves with it:
 
 - Implementing a knowledge base (KB), a _knowledge representation storage_, for:
   all observed facts, detected patterns, and inference rules.
+  (Rizin's KB issue: https://github.com/rizinorg/rizin/issues/5213)
   - How is it represented: table-like (row-, column-oriented), graph, hypergraph?
   - What implementations already exist? Are they maintained and somewhat production ready (very important category)?
     What pros and cons do they have? For what reasoning structures do they allow (predicate logic, probabilistic, modality)?
