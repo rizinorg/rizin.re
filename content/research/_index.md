@@ -294,6 +294,7 @@ Nonetheless, I believe it is essential to concern ourselves with it:
   - Classifying strongly connected components
   - Show memory regions X with a relation R to regions Y.
 - Semantic search (see Semantic Indexing of Binja {{<citation UsingSemanticIndexing>}} as an example).
+- BAP has several classification plugins like the one classigying functions into no, static only, arbitrary memory write (https://github.com/BinaryAnalysisPlatform/bap-plugins/tree/master/staticstore).
 
 ## Open Research Procedures
 
