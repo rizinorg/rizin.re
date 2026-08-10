@@ -34,8 +34,8 @@ a wide variety of processor architectures.
 
 ## On Restoring Knowledge
 
-To give a concrete example of how such an inductive method could look,
-consider the following.
+To give you an idea of how lessons from the knowledge engineering field could be used,
+consider the following two examples.
 
 ### Inductive Example: Classifying a string parser function
 
@@ -98,20 +98,27 @@ Factor graphs, Bayesian networks, Markov chains, or whatever you can implement i
 You quickly see that one can build pretty complex reasoning networks like that.
 Changing their results the more observations happen.
 
-In the end, this is what a reverse engineer does.
+Classification does not need to stop on this small scale.
+Small observations of reasoning networks can accumulate.\
+Where in the binary are potential read or write primitives? \
+What is the factual architecture of the program, where are control flow clusters,
+and where are the bridges between them?
+What is the function of these regions of memory?
 
-Except it is expressed in a computational form instead of scribbles in a notebook.
+All questions we expect to answer.\
+In the end, these are questions a reverse engineer answers.\
+Except with scribbles in a notebook, so why not in computational form?
 
 ### Abductive Example: Enhancing LLM reasoning with rapid access to low level facts.
 
-LLMs are already a huge help in generating hypothesis about artifacts in a binary.
+LLMs are already a huge help in generating hypotheses about artifacts in a binary.
 
-"What is the purpose of this function?", "What does the data could represent?",
-"What should I do, if I look for the bootloader code in this binary?"
+"What is the purpose of this function?", "What could the data represent?",
+"What should I do if I look for the bootloader code in this binary?"
 
 Of course, the LLM might hallucinate more or less in the answers.
 Though, if the researcher is not familiar with the type of binary and struggles
-to find come up with new ideas, even a rough direction can help.
+to come up with new ideas, even a rough direction can help.
 
 Consider the following function from a niche architecture (Hexagon).
 
@@ -141,23 +148,23 @@ Consider the following function from a niche architecture (Hexagon).
 │     │└└─> 0xfe102050      [   R0 = ##0xfffffbad
 └     └───> 0xfe102054      [   jumpr LR
 ```
-
-Assuming you have no decompiler it will take a short while, until you figured out
+Assuming you have no decompiler, it will take a short while until you figure out
 what it does.
 
 An LLM will, possibly in a shorter time, provide you a few observations about it:
-- It does up to two bounds checks on the input value in `R1:0`.
+- It does one or two bounds checks (intervals [0xad,0x00] and [0xda,0xce]) on the input value in `R1:0`.
 - It accesses a multi-level lookup table and returns data from it.
-- Due to the bounds check there are around ~60 and ~170 entries in the table to retrieve.
-  Possibly two kind of versions for whatever is stored in there (one for each interval).
-- From the `segment.modem.b02` flag it might infer that it is a
-  system/HVM/interrupt call lookup or a constant/state getter function (at least it this in my experiment).
+- Due to the bounds check, there are around ~60 and ~170 entries in the table to retrieve.
+  Possibly two kinds of versions for whatever is stored in there (one for each interval).
+- From the `segment.modem.b02` flag, it might infer that it is a
+  system/HVM/interrupt call lookup or a constant/state getter function in an
+  early boot procedure (at least it did in my experiment).
 
 If the researcher is inexperienced, these points can already be helpful to look for further evidence to
-reject or accept these hypothesis.
-But it would be even better if the agent could test the hypothesis on its own.
+reject or accept these hypotheses.
+But it would be even better if the agent could test the hypotheses on its own.
 
-An obvious solution is of course to provide the agent a MCP server to run commands in Rizin.
+An obvious solution is, of course, to provide the agent an MCP server to run commands in the analysis tool.
 It could disassemble the locations where the function is called and track
 the returned value.
 
@@ -165,60 +172,62 @@ But this has disadvantages:
 - The LLM has to keep potentially a lot of text in its context.
   The more often the function is used, the faster the context grows.
 - LLMs will always, by design even, hallucinate.
-  This likelihood will go up, if the input is not strongly represented in its training data (niche assembly might be such a case).
-  Combined with an arbitrary context growth rate, the probability for degrading output will go up.
+  This likelihood will go up if the input is not strongly represented in its training data (niche assembly might be such a case).
+  Combined with an arbitrary context growth rate, the probability of degrading output will increase.
 - To prevent overarching context usage, LLM agents could dispatch individual tasks to other agents.
-  But with each passing of messages to another agent mistakes in communication can
+  But with each passing of messages to another agent, mistakes in communication can
   quite literally happen.
 
 It is like letting an LLM build a math proof.
-It maybe is sufficient to let it run on its own, but it is almost certain it
+It may be sufficient to let it run on its own, but it is almost certain it
 will be faster and more precise if it is given a formal proof checker.
-In cooperation it will also be better to give an agent a piece of code it can run to _obtain_ `X`,
-instead of a lengthy explanation how to _calculate_ `X`.
+In cooperation with another agent, it will also be better to give the colleague
+agent a piece of code it can run to _obtain_ `X`,
+instead of a lengthy explanation of how to _calculate_ `X`.
 
-So, instead of letting the LLM do it's reasoning on simple text alone,
-we can expect to get better results if it could formally verify hypothesis or evidence.
+So, instead of letting the LLM do its reasoning on simple text alone,
+we can expect to get better results if it can formally verify hypotheses or evidence.
 
-It could query a tainting algorithm, checking if the function's return value
+For example, it querying a tainting algorithm, checking if the function's return value
 is used in an indirect call.
 If it finds such a case, it supports the system/HVM call hypothesis.
-If it doesn't it can check the alternative hypothesis again.
+If it doesn't, it can check the alternative hypothesis again.
 
-Additionally, it could dispatch a job to another agent.
-Asking it to find vulnerabilities in this function.
+Additionally, it could dispatch a job to another agent,
+asking it to find vulnerabilities in this function.
 That agent could query for the exact semantics of `P0 = boundscheck(R1:0,R3:2):raw:lo`,
 learning that the bounds check is `R0 in (0xad,0x00]` instead of `R1:0 in [0xad,0x00]`.
-It might also spot the fact that `R1` is added to the table address but is never bounds checked.
-A potential read or write primitive, if `R0` were user-controlled.
+It might also spot the fact that `R1` is added to the table addresses but is never bounds-checked-
+a potential read or write primitive if `R1` were user-controlled.
 
-Instead of answering with a vague informal explanation of this finding,
-the agent could store the formal prove simply in the knowledge base,
-and only return the proof id and a short node that controlling `R0`
-could lead to an out of bounds read or write.
+Instead of answering with a vague, informal explanation of this finding,
+the agent could store the formal proof in the knowledge base
+and only return the proof ID and a short note that controlling `R1`
+could lead to an out-of-bounds read or write.
 
-Any agent who has access to the knowledge base, can later query the knowledge base again
+Any agent who has access to the knowledge base can later query it again
 to make use of that fact.
 
 ---
 
 We can be almost certain that building formal tools for agents will yield
-results. Because it was already done before.
+results, because it was already done before.\
 LLM coding agents are relatively good because they can, at any time,
 test their generated text against a formally correct machine (a compiler, an interpreter, a test suite).
 
-But reverse engineering tools rarely provide such _formalized_ and _rule based_ access and results.
-{{<footnote "A notable exception is BAPs reasoning system Saluki: https://github.com/BinaryAnalysisPlatform/bap-plugins/tree/master/saluki">}}
+But reverse engineering tools rarely provide such _formalized_ and _rule-based_ access and results.
+{{<footnote "A notable exception is BAP's reasoning system Saluki: https://github.com/BinaryAnalysisPlatform/bap-plugins/tree/master/saluki">}}\
 Note that an MCP server for command access is not sufficient!
-The value is added by reducing the complexity of the task for the agent.
-And by storing results in an information theoretical dense form (formalized, instead of natural language).
+The value added by the knowledge base and inference engine is to reduce the complexity of the task.
+Storing results in an information-theoretically dense form (formalized, instead of natural language)
+won't dilute its precision.
 
-What we need to achieve is to have a sufficiently powerful query language, knowledge base, and inference system
-to express hypothesis and proofs. Accessibly for LLMs and humans alike.
+What we need to achieve is a sufficiently powerful query language, knowledge base, and inference system
+to express hypotheses and proofs, accessible for LLMs and humans alike.
 
-Then an LLM can rely on short queries and their formally correct truthiness,
-instead on endless generated walls of text.
-Humans on the other hand can add the bits and pieces agents cannot yet comprehend.
+Then an LLM can rely on short queries and their formally correct truthfulness,
+instead of endless generated walls of text.
+Humans, on the other hand, can add the bits and pieces agents cannot yet comprehend.
 
 ## Knowledge Engineering & Expert Systems
 
@@ -272,7 +281,7 @@ The tools and algorithms we use do automation. They are of deductive nature,
 computing from one set of known facts another set of facts.
 They _necessarily_ need all premises to be true so their conclusions are true as well.
 That is the case for a disassembler, which outputs garbage
-if the wrong bytes are fed in, and good output for a correct ones.
+if the wrong bytes are fed in, and good output for the correct ones.
 It is also true for basic control flow analysis: if a `jump 0x7000` instruction is located in an `r-x` map,
 it is pretty much guaranteed to jump to `0x7000` when executed.
 
