@@ -229,41 +229,28 @@ Then an LLM can rely on short queries and their formally correct truthfulness,
 instead of endless generated walls of text.
 Humans, on the other hand, can add the bits and pieces agents cannot yet comprehend.
 
-## Knowledge Engineering & Expert Systems
+## Why Rizin is a Good Choice for Research
 
-As many of you could already guess, the problem is essentially what many
-call knowledge engineering, expert systems {{< citation "ExpertSystem2026" >}},
-or semantic reasoning systems {{< citation "SemanticReasoner2026" >}}.
+We, the core team of RizinOrg, believe that Rizin is the fitting framework for
+our research effort.
 
-These topics started to become very prominent in the 80s onward
-and are now common techniques in many fields.
-SAT-solvers, software supporting strategic decisions in business or the military,
-or simply AI in games are all examples of that.
+- We think maintainability is an essential part in our work.'\
+  Many tools are abandoned after proofing the concept.\
+  That is not what we are aiming for.\
+  We want a deployable software for production.
+- Rizin supports a wide variety of architectures and binary formats, many of them niche or old.\
+  We always plan, implement, and test new features against the oddities of these architectures.\
+  So everything works in the uncommon case as well.\
+  Because the world is not just x86 and ARM.
+- Rizin is written in C, is designed modular, and very lightweight (compile time commonly under 3 minutes).
+- Our intermediate language RzIL is made for reverse engineering and is mathematically well defined.\
+  A hard requirement for knowledge engineering and formal prove systems.
+- Rizin binds to any Swig-supported language.
+  Making it perfect as library for your favourite tool or automated analysis.
+- Rizin is open source, keeping it free for everyone while its
+  license (LGPL 3) still allows commercial use.
 
-Of course, in the field of knowledge engineering the hot topic currently are LLMs.
-
-### A word about AI/LLMs
-
-Current reports show that LLMs seem very much capable of finding unintended behavior in source code.
-While no one can know how much better the models will become,
-we can assume that there will be improvement.
-
-Our effort here doesn't seek to replace LLMs.
-Quite the opposite, even, as you can see in the example above.
-
-LLMs and, in effect, neural networks are a subset of knowledge engineering.
-We believe that neural networks will play a big role in the reverse engineering field, given
-the technology's ability to recognize requested patterns in complex data.
-
-We do believe, though, that neural networks shouldn't be seen as the
-"ultimate solution for everything."
-
-The targeted problem here is of a broadly knowledge-engineering nature,
-not (just) a question of how to connect neural networks together.
-
-## Why Rizin
-
-# The Philosophical Problem - The Gap in Computing Reasoning
+## The Gap in Computing Reasoning
 
 Most of the tools we use in reverse engineering (RE) of computer programs are from the 2000s and earlier.
 Maybe they were implemented more recently, but the algorithms and ideas are relatively
