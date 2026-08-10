@@ -12,6 +12,26 @@ TocOpen: true
 
 # Abstract
 
+Most software reverse engineering tools on the market are limited to a standard set
+of analysis algorithms and functionalities. A framework commonly consists of
+various disassemblers, different processor semantics represented in some immediate language,
+as well as a set of deductive algorithms for value analysis and CFG restoration.
+Many of the applied techniques have been described already in the 1990s and before.
+Since then, computer science made significant progress in the field of
+knowledge engineering, complex pattern recognition, and artificial intelligence.
+Often applying probabilistic and more "fuzzy" techniques to learn and make
+predictions about complex systems.\
+With a few notable exceptions the lessons from these field were not applied
+in reverse engineering, yet. Although, they already proved themselves exceptionally valuable
+in the field of biology, medicine, intelligence, climate science, and other fields.
+Although, software reverse engineering in its core is understanding of complex systems,
+there is still a gap in what the theoretical computer science provides and what is
+applied in the practice.\
+We want to change this. In this public research and developing effort we will
+evaluate theoretical concepts on their applicability to reverse engineering,
+develop prototypes using them, and bring them to a production ready state for
+a very wide variety of processor architectures.
+
 ## On Restoring Knowledge
 
 To give a concrete example of how such an inductive method could look,
