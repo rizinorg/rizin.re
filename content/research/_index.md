@@ -249,6 +249,37 @@ our research effort.
 - Rizin is open source, keeping it free for everyone while its
   license still allows commercial use.
 
+## Roadmap of Research
+
+The roadmap from initial research to prototypes and finally production-ready code
+is intended to have three steps:
+
+1. **Foundational Concepts**\
+  Knowledge engineering first and foremost requires a definition of what "knowledge", "reasoning", or "inferring" actually means.
+  For that we will turn to knowledge engineering and analytical philosophy, inspecting suitable theories.
+  To stay on topic, we will accompany every theory with practical reverse-engineering examples to show their workings and shortcomings.\
+  Tools like Problog or Datalog should be sufficient for rapid prototyping of minimal examples.\
+  The aim is to:
+    - Understand the problem space.
+    - Get an overview of what each theory provides, what limits they have, and whether those limits are relevant.
+    - Build introductory articles for anybody who wants to join, providing reading lists and relevant examples.
+  \
+  The result should be a selection of reasoning theories to implement. \
+  **For the current progress please visit the [Epistemology](/research/epistemology) page.**
+2. **Algorithm Design and Prototyping**\
+  Once the theories are selected, we can think about the best possible implementation of them.
+  The question is how a knowledge base, reasoning engine, language, and the human-machine interface
+  should look in practice.
+  This will include:
+    - Testing existing tools and libraries and considering them as dependencies.
+    - Researching efficient algorithms for the computational problems we have to solve.
+    - Designing the UX/UI and API.
+    - Prototyping and testing.
+3. **Final Implementation**\
+  Lastly, the lessons learned must be converted into a product.\
+  Lessons learned from Step 2 are applied here by implementing the most suitable
+  solutions.
+
 ## Solutions
 
 The notes below are very rough and the field of our work.
