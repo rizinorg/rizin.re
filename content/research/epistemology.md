@@ -68,7 +68,7 @@ Simply because she misses experience.
 And lastly, there are the inductive reasoning methods.
 These are usually understood as being of enumerative or cumulative nature.
 The more observations we collect as evidence, the more
-likely our hypothesis is true or false. {{< footnote "Of course this doesn't exclude the case where a single observation can flip the whole conclusion. If we observe 1 million white swans, there is a high probability that all swans are white. Of course only until we observed single black swan." >}}
+likely our hypothesis is true or false. {{< footnote "Of course this doesn't exclude the case where a single observation can flip the whole conclusion. If we observe 1 million white swans, there is a high probability that all swans are white. Of course only until we observed a single black swan." >}}
 {{< citation eagleProbabilityInductiveLogic2025 "Chapter 1.5">}}\
 There are a few (often statistical) algorithms doing that.
 Think of Value Set Analysis (VSA): {{<citation balakrishnanAnalyzingMemoryAccesses2004>}}
@@ -148,10 +148,6 @@ Very, very new stuff
 - Is that how people actually reason? {{< citation douvenRoleExplanatoryConsiderations2015 >}}
 - What can each of them do, what can they not?
 
-----
-
 {{< citation_list "Citations" >}}
-
-----
 
 {{< footnote_list "Footnotes" >}}

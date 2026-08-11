@@ -306,11 +306,7 @@ You can contact us via:
 - [Email](mailto:core@rizin.re)
 - [Mattermost](https://im.rizin.re)
 
----
-
 {{< citation_list "References" >}}
-
----
 
 {{< footnote_list "Footnotes" >}}
 
