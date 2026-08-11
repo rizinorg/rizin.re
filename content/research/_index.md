@@ -32,12 +32,12 @@ evaluate theoretical concepts for their applicability to reverse engineering,
 develop prototypes, use them, and bring them to a production-ready state for
 a wide variety of processor architectures.
 
-## On Restoring Knowledge
+# On Restoring Knowledge
 
 To give you an idea of how lessons from the knowledge engineering field could be used,
 consider the following two examples.
 
-### Inductive Example: Classifying a string parser function
+## Inductive Example: Classifying a string parser function
 
 You open a binary and are interested in checking string parsers in it
 because they are often a source of bugs.
@@ -109,7 +109,7 @@ All questions we expect to answer.\
 In the end, these are questions a reverse engineer answers.\
 Except with scribbles in a notebook, so why not in computational form?
 
-### Abductive Example: Enhancing LLM reasoning with rapid access to low level facts.
+## Abductive Example: Enhancing LLM reasoning with rapid access to low level facts.
 
 LLMs are already a huge help in generating hypotheses about artifacts in a binary.
 
@@ -227,7 +227,10 @@ Then an LLM can rely on short queries and their formally correct truthfulness,
 instead of endless generated walls of text.
 Humans, on the other hand, can add the bits and pieces agents cannot yet comprehend.
 
-## Why Rizin is a Good Choice for Research
+Want to see such a case in current production?
+Check out [Binary Ninja's Sidekick](#related-work)!
+
+## Why Rizin is a Good Choice
 
 We, the core team of RizinOrg, believe that Rizin is the fitting framework for
 our research effort.
@@ -255,6 +258,9 @@ The roadmap from initial research to prototypes and finally production-ready cod
 is intended to have three steps:
 
 1. **Foundational Concepts**\
+  \
+  **Progress on:** [Epistemology](/research/epistemology)\
+  \
   Knowledge engineering first and foremost requires a definition of what "knowledge", "reasoning", or "inferring" actually means.
   For that we will turn to knowledge engineering and analytical philosophy, inspecting suitable theories.
   To stay on topic, we will accompany every theory with practical reverse-engineering examples to show their workings and shortcomings.\
@@ -264,8 +270,7 @@ is intended to have three steps:
     - Get an overview of what each theory provides, what limits they have, and whether those limits are relevant.
     - Build introductory articles for anybody who wants to join, providing reading lists and relevant examples.
   \
-  The result should be a selection of reasoning theories to implement. \
-  **For the current progress please visit the [Epistemology](/research/epistemology) page.**
+  The result should be a selection of reasoning theories to implement.
 2. **Algorithm Design and Prototyping**\
   Once the theories are selected, we can think about the best possible implementation of them.
   The question is how a knowledge base, reasoning engine, language, and the human-machine interface
@@ -280,148 +285,26 @@ is intended to have three steps:
   Lessons learned from Step 2 are applied here by implementing the most suitable
   solutions.
 
-## Solutions
+## Related Work
 
-The notes below are very rough and the field of our work.
-They should be understood as sketches, notes, and keywords.
-
-If one of them was looked at in more detail, it will link to a page
-describing its dimensions.
-
-If any of those points below strike you as odd or you have questions about what they mean,
-please don't hesitate to contact us (preferably on [Mattermost](https://im.rizin.re)).
-
-### Philosophy of epistemology and ethics
-
-The philosophical part is obviously not the main point of the research.
-Nonetheless, I believe it is essential to concern ourselves with it:
-1. The question of how to gain meaning from complexity is not a purely technical one.
-  It is a philosophical question in itself.
-  Ignoring the research of a whole discipline would simply hinder our effort for no good reason.
-2. I assume that trying to look at our problem from philosophical points of view
-  will help us keep the bigger picture.
-  It is far too easy to get lost in technical details.
-  There is no need to accelerate this notion.
-
-#### Epistemology
-
-- [Abstractions, relations, and their modality.](/research/abstraction_relation)
-  Find a suitable description for our use case.
-- How do we gain meaning about the world (about our technical system)?
-- Is our language sufficient to describe the substance?
-  - What are the consequences of building up knowledge about complexity?
-
-#### Ethics
-
-- Technology as a way to project power. Power for whom?
-- Everything here is done in the open.
-- Results fully open source.
-- Possible consequences if research succeeds and solutions work as intended.
-- What could be unknown unknowns?
-
-### Human<>Machine Interaction
-
-- Whatever the final implementation looks like, it absolutely **must be** intuitive to use.
-  Interaction cannot mean felt friction. Because every piece of mental work going
-  into figuring out how the tool can do X, is not spent on the actual research problem of the user.
-- Semantic search. Type text, get objects served for that category.
-- Multiple representations of knowledge.
-  - the language, names, graphs, heat maps, plots, diagrams, highlights in assembly, what else?
-
-### Core implementations
-
-- Implementing a knowledge base (KB), a _knowledge representation storage_, for:
-  all observed facts, detected patterns, and inference rules.
-  (Rizin's KB issue: https://github.com/rizinorg/rizin/issues/5213)
-  - How is it represented: table-like (row-, column-oriented), graph, hypergraph?
-  - What implementations already exist? Are they maintained and somewhat production ready (very important category)?
-    What pros and cons do they have? For what reasoning structures do they allow (predicate logic, probabilistic, modality)?
-- Implementing (or forking) a language for defining facts, probabilistic rules,
-  and inductions from other facts and rules.
-  - Provide implementation of common reasoning structures (Bayes, factor graphs, Baconian Probability, Stability Theory of Belief, Markov chains, predicate logic, algebra, analysis?...)
-  - Can the language be extended if needed?
-- **Performance**: Implementations must be reasonably gentle with resources and
-  be designed to allow for improvements.
-
-### Specific use case solutions
-
-- Rule-based classification defined by our language
-  - Tail calls
-  - Type inference from sampled observations
-- User-defined point of view, [Modality](https://en.wikipedia.org/wiki/Modality_%28semantics%29) (what if X would be Y?).
-  If a user gives another a posteriori probability for certain observations
-  (e.g., a write memory access at address `a` increases the probability of unintended behavior by `p`),
-  recompute the results with that probability assumed.
-  Add or update that alternative POV to the KB.
-- Heat map of binaries showing patterns X.
-  - Show memory regions that likely yield unintended behavior.
-  - Show memory regions that are likely to interact with a privileged layer.
-- Restoring binary architecture
-  - Classifying strongly connected components
-  - Show memory regions X with a relation R to regions Y.
-- Semantic search (see Semantic Indexing of Binja {{<citation UsingSemanticIndexing>}} as an example).
-- BAP has several classification plugins like the one classifying functions into no, static only, arbitrary memory write (https://github.com/BinaryAnalysisPlatform/bap-plugins/tree/master/staticstore).
-
-## Open Research Procedures
-
-Define the problem space, the solution space, and add subcategories for the research we review here.
-
-- High-level research strategy
-- Fundamental Concepts
-  - Representing knowledge - Applicable questions of ontology and epistemology
-    - Reasoning
-  - Fuzzy pattern matching
-    - Neural networks
-      - Reinforcement learning
-  - Fuzzy logic
-  - Probabilistic reasoning
-    - Epistemic logic
-    - Bayesian reasoning and graphs
-    - Markov chains
-- Implementation
-  - Knowledge base design
-  - [Probabilistic logic programming](/research/language)
-- Concrete use cases of the concepts for RE
-  - Extracting the architecture of one or more binaries
-  - Semantic understanding of programs
-    - Classification of program semantics, binary properties, and attributes
-    - Detecting concrete unintended behavior
-    - Exploitation
-- Ethical considerations
-- ...?
-
-- Add a backlog of papers and books to read.
-- Summarize each of them as a short blog post (in subcategory) for our own learning,
-  easy entry for newcomers, and proof of expertise for stakeholders.
-
-## Want to join?
-
-### Contacts
-
-- [Email](mailto:core@rizin.re)
-- [Mattermost](https://im.rizin.re)
-  - Specifically the [research channel](https://im.rizin.re/rizinorg/channels/research)
-
-### Tasks
-
-- How can a user interface and interaction look like? How can it be made as frictionless as possible?
-- Search for and add articles to the reading list; very briefly point out why they are of interest.
-- Correct mistakes, point out errors, report unclear explanations.
-- Sort papers and classify them by importance.
-- Read a paper and write a blog-post-like summary that condenses the idea and
-  interprets it with respect to software reverse engineering.
-- Write an overview page about one of the bullet points above.
-
-I hope it is needless to say, but:
-No AI allowed at this stage.
-Understanding is the target, not generating.
-Especially, because we don't know yet, if LLMs have a semantic understanding of the things they generate.
-
-## Related work
-
+- Binary Ninja has an LLM as [Sidekick](https://sidekick.binary.ninja/blog/sidekick-26-1-a-proper-home-for-sidekick/).
+  It allows asking questions about the binary and produces summaries, findings, and artifacts.
 - Binary Ninja supports experimental [semantic search](https://docs.sidekick.binary.ninja/guide/semantic_indexing.html).
   The search term can be a vague description ("TLS handshake"); then matching functions
   are returned. The user has control over the similarity (uncertainty) level of the matching.
+- The Binary Analysis Platform (BAP) has a reasoning engine called [Saluki](https://github.com/BinaryAnalysisPlatform/bap-plugins/tree/master/saluki).
+  It lets you define rules and tries to apply them against the binary.
+  There are rules to match simple backdoors, user-controlled stack pointers, or unsanitized SQL handling.
+
+# Want to Join?
+
+If you or your organization is interested in contributing or joining the effort,
+we are happy to get in touch!
+
+You can contact us via:
+
+- [Email](mailto:core@rizin.re)
+- [Mattermost](https://im.rizin.re)
 
 ---
 
@@ -430,3 +313,132 @@ Especially, because we don't know yet, if LLMs have a semantic understanding of 
 ---
 
 {{< footnote_list "Footnotes" >}}
+
+<!-- ## Solutions -->
+
+<!-- The notes below are very rough and the field of our work. -->
+<!-- They should be understood as sketches, notes, and keywords. -->
+
+<!-- If one of them was looked at in more detail, it will link to a page -->
+<!-- describing its dimensions. -->
+
+<!-- If any of those points below strike you as odd or you have questions about what they mean, -->
+<!-- please don't hesitate to contact us (preferably on [Mattermost](https://im.rizin.re)). -->
+
+<!-- ### Philosophy of epistemology and ethics -->
+
+<!-- The philosophical part is obviously not the main point of the research. -->
+<!-- Nonetheless, I believe it is essential to concern ourselves with it: -->
+<!-- 1. The question of how to gain meaning from complexity is not a purely technical one. -->
+  <!-- It is a philosophical question in itself. -->
+  <!-- Ignoring the research of a whole discipline would simply hinder our effort for no good reason. -->
+<!-- 2. I assume that trying to look at our problem from philosophical points of view -->
+  <!-- will help us keep the bigger picture. -->
+  <!-- It is far too easy to get lost in technical details. -->
+  <!-- There is no need to accelerate this notion. -->
+
+<!-- #### Epistemology -->
+
+<!-- - [Abstractions, relations, and their modality.](/research/abstraction_relation) -->
+  <!-- Find a suitable description for our use case. -->
+<!-- - How do we gain meaning about the world (about our technical system)? -->
+<!-- - Is our language sufficient to describe the substance? -->
+  <!-- - What are the consequences of building up knowledge about complexity? -->
+
+<!-- #### Ethics -->
+
+<!-- - Technology as a way to project power. Power for whom? -->
+<!-- - Everything here is done in the open. -->
+<!-- - Results fully open source. -->
+<!-- - Possible consequences if research succeeds and solutions work as intended. -->
+<!-- - What could be unknown unknowns? -->
+
+<!-- ### Human<>Machine Interaction -->
+
+<!-- - Whatever the final implementation looks like, it absolutely **must be** intuitive to use. -->
+  <!-- Interaction cannot mean felt friction. Because every piece of mental work going -->
+  <!-- into figuring out how the tool can do X, is not spent on the actual research problem of the user. -->
+<!-- - Semantic search. Type text, get objects served for that category. -->
+<!-- - Multiple representations of knowledge. -->
+  <!-- - the language, names, graphs, heat maps, plots, diagrams, highlights in assembly, what else? -->
+
+<!-- ### Core implementations -->
+
+<!-- - Implementing a knowledge base (KB), a _knowledge representation storage_, for: -->
+  <!-- all observed facts, detected patterns, and inference rules. -->
+  <!-- (Rizin's KB issue: https://github.com/rizinorg/rizin/issues/5213) -->
+  <!-- - How is it represented: table-like (row-, column-oriented), graph, hypergraph? -->
+  <!-- - What implementations already exist? Are they maintained and somewhat production ready (very important category)? -->
+    <!-- What pros and cons do they have? For what reasoning structures do they allow (predicate logic, probabilistic, modality)? -->
+<!-- - Implementing (or forking) a language for defining facts, probabilistic rules, -->
+  <!-- and inductions from other facts and rules. -->
+  <!-- - Provide implementation of common reasoning structures (Bayes, factor graphs, Baconian Probability, Stability Theory of Belief, Markov chains, predicate logic, algebra, analysis?...) -->
+  <!-- - Can the language be extended if needed? -->
+<!-- - **Performance**: Implementations must be reasonably gentle with resources and -->
+  <!-- be designed to allow for improvements. -->
+
+<!-- ### Specific use case solutions -->
+
+<!-- - Rule-based classification defined by our language -->
+  <!-- - Tail calls -->
+  <!-- - Type inference from sampled observations -->
+<!-- - User-defined point of view, [Modality](https://en.wikipedia.org/wiki/Modality_%28semantics%29) (what if X would be Y?). -->
+  <!-- If a user gives another a posteriori probability for certain observations -->
+  <!-- (e.g., a write memory access at address `a` increases the probability of unintended behavior by `p`), -->
+  <!-- recompute the results with that probability assumed. -->
+  <!-- Add or update that alternative POV to the KB. -->
+<!-- - Heat map of binaries showing patterns X. -->
+  <!-- - Show memory regions that likely yield unintended behavior. -->
+  <!-- - Show memory regions that are likely to interact with a privileged layer. -->
+<!-- - Restoring binary architecture -->
+  <!-- - Classifying strongly connected components -->
+  <!-- - Show memory regions X with a relation R to regions Y. -->
+<!-- - Semantic search (see Semantic Indexing of Binja {{<citation UsingSemanticIndexing>}} as an example). -->
+<!-- - BAP has several classification plugins like the one classifying functions into no, static only, arbitrary memory write (https://github.com/BinaryAnalysisPlatform/bap-plugins/tree/master/staticstore). -->
+
+<!-- ## Open Research Procedures -->
+
+<!-- Define the problem space, the solution space, and add subcategories for the research we review here. -->
+
+<!-- - High-level research strategy -->
+<!-- - Fundamental Concepts -->
+  <!-- - Representing knowledge - Applicable questions of ontology and epistemology -->
+    <!-- - Reasoning -->
+  <!-- - Fuzzy pattern matching -->
+    <!-- - Neural networks -->
+      <!-- - Reinforcement learning -->
+  <!-- - Fuzzy logic -->
+  <!-- - Probabilistic reasoning -->
+    <!-- - Epistemic logic -->
+    <!-- - Bayesian reasoning and graphs -->
+    <!-- - Markov chains -->
+<!-- - Implementation -->
+  <!-- - Knowledge base design -->
+  <!-- - [Probabilistic logic programming](/research/language) -->
+<!-- - Concrete use cases of the concepts for RE -->
+  <!-- - Extracting the architecture of one or more binaries -->
+  <!-- - Semantic understanding of programs -->
+    <!-- - Classification of program semantics, binary properties, and attributes -->
+    <!-- - Detecting concrete unintended behavior -->
+    <!-- - Exploitation -->
+<!-- - Ethical considerations -->
+<!-- - ...? -->
+
+<!-- - Add a backlog of papers and books to read. -->
+<!-- - Summarize each of them as a short blog post (in subcategory) for our own learning, -->
+  <!-- easy entry for newcomers, and proof of expertise for stakeholders. -->
+
+<!-- ### Tasks -->
+
+<!-- - How can a user interface and interaction look like? How can it be made as frictionless as possible? -->
+<!-- - Search for and add articles to the reading list; very briefly point out why they are of interest. -->
+<!-- - Correct mistakes, point out errors, report unclear explanations. -->
+<!-- - Sort papers and classify them by importance. -->
+<!-- - Read a paper and write a blog-post-like summary that condenses the idea and -->
+  <!-- interprets it with respect to software reverse engineering. -->
+<!-- - Write an overview page about one of the bullet points above. -->
+
+<!-- I hope it is needless to say, but: -->
+<!-- No AI allowed at this stage. -->
+<!-- Understanding is the target, not generating. -->
+<!-- Especially, because we don't know yet, if LLMs have a semantic understanding of the things they generate. -->
