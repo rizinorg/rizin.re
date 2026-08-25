@@ -118,29 +118,39 @@ quicker to use their magnifying glass.
 
 # Reasoning Theories
 
-Here we can add intros for each reasoning theory we took a look at.
-If you find a good introduction about one, explaining the theory well,
-it is possible to simply add a link to the resource here.
+## Want to join?
 
-It is not necessary to write yet another introduction if there are already plenty.
-But you must have read and understood the original work.
-Just adding a reference and assume it is good is not sufficient.
+Here we can add intros for each reasoning theory.
 
-Each theory should have computational examples attached.
+If you want to contribute such an intro as well, feel free to open a Draft PR
+so we can discuss it.
 
-TODO: Add link to repo
+The introduction should talk about the reasoning process's applicability to reverse engineering.
+It should give examples and explain little experiments you did.
+
+You _should not_ explain the reasoning process in detail again.
+Add a brief refresher and links to more detailed introductions.
+
+You, as the author, are required to read the primary sources of course
+and understand its advantages and shortcomings.
 
 ### Bayes
 
+Visit [Bayes](/research//bayes) for the discussion.
+
 ### Theory of Belief
+
+### Factor Graphs
+
+Not necessarily a philosophy. But applicable for us.
 
 ### Baconian Probability
 
 ### The Stability Theory of Belief - Additive Logic of Epistemic Reasons {{< citation LeitgebAdditiveLogicReason2026 >}}
 
-Very, very new stuff
-
 ### Fuzzy Logic
+
+### Deep Learning
 
 ## Theory comparisons
 
