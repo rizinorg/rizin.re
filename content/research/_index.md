@@ -231,8 +231,8 @@ Then an LLM can rely on short queries and their formally correct truthfulness,
 instead of endless generated walls of text.
 Humans, on the other hand, can add the bits and pieces agents cannot yet comprehend.
 
-Want to see such a case in current production?
-Check out [Binary Ninja's Sidekick](#related-work)!
+Want to see a similar application of an LLM in production?
+Check out Binary Ninja's Sidekick in the [Related Work section](#related-work)!
 
 ## Why Rizin is a Good Choice
 
