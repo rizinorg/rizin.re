@@ -21,6 +21,9 @@
           {{- if $i }}, {{ end }}
           {{- $a.given }} {{ $a.family }}
         {{- end }}
+      {{- if .issued }}
+        - {{ range $i, $p := index .issued "date-parts" 0 }}{{ if $i }}-{{ end }}{{ $p }}{{ end }}
+      {{- end }}
       </p>
       {{- end }}
 
