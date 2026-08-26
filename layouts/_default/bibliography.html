@@ -15,6 +15,15 @@
       <h3>{{ .id }}</h3>
       {{- end }}
 
+      {{- if .author }}
+      <p class="bib-items__item__authors">
+        {{- range $i, $a := .author }}
+          {{- if $i }}, {{ end }}
+          {{- $a.given }} {{ $a.family }}
+        {{- end }}
+      </p>
+      {{- end }}
+
       {{- if .abstract }}
         <div class="bib-items__item__abstract">
         <details>
