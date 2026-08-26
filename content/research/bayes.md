@@ -8,6 +8,20 @@ ShowToc: true
 TocOpen: false
 ---
 
+# Literature and Experiments
+
+**Experiments**
+
+See https://github.com/rizinorg/rz-reason-exp/tree/main/bayes
+
+**Recommended reading**
+
+Chapter 1 in Foundations of the Theory of Probability by Kolmogorov {{< citation "FoundationsTheoryProbability" "Chapter 1" >}}.
+This is the standard book defining all basics (and some non-basics) of probability theory.
+
+For Bayesian networks you can refer to Stephenson {{<citation IntroductionBayesianNetworks2000>}} or
+the Bayesian Network lectures of Stanford class CS221 {{<citation StandfordCS221Bayes>}}.
+
 # Probability and Bayesian Networks
 
 ## Intro probability and Bayes
@@ -62,3 +76,8 @@ TocOpen: false
 - Researcher assumes very few Unkowns Unknowns.
 - Variable independence?
 - Additivity?
+
+
+{{< citation_list "Citations" >}}
+
+{{< footnote_list "Footnotes" >}}
