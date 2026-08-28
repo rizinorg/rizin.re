@@ -16,14 +16,14 @@ See https://github.com/rizinorg/rz-reason-exp/tree/main/bayes
 
 **Introductionary reading**
 
-Chapter 1 in Foundations of the Theory of Probability by Kolmogorov {{< citation "FoundationsTheoryProbability" "Chapter 1" >}}.
+Chapter 1 in "Foundations of the Theory of Probability" by Kolmogorov {{< citation "FoundationsTheoryProbability" "Chapter 1" >}}.
 This is the standard book defining all basics (and some non-basics) of probability theory.
 
-For a more modern and less math heavy introduction see A modern introduction
-to probability and statistics {{<citation dekkingModernIntroductionProbability2010>}}
+For a more modern and less math heavy introduction see "A modern introduction
+to probability and statistics" {{<citation dekkingModernIntroductionProbability2010>}}
 
-For Bayesian networks you can refer to Stephenson {{<citation IntroductionBayesianNetworks2000>}},
-the Bayesian Network lectures of Stanford class CS221 {{<citation StandfordCS221Bayes>}},
+For Bayesian Networks (BN) you can refer to Stephenson {{<citation IntroductionBayesianNetworks2000>}},
+the BN lectures of Stanford class CS221 {{<citation StandfordCS221Bayes>}},
 or the lecture notes from University of Torronto class CS 486/686 {{<citation dekkingModernIntroductionProbability2010>}}.
 
 # Probability and Bayesian Networks
@@ -36,7 +36,7 @@ See what is necessary to refresh for the experiment.
 
 Let's turn to two examples to show how BNs could be used in RE.
 The `unintended jump` example is intentionally somewhat loose, highlighting the problems of BN application.
-The second example is a shortened version of the function detection from FunProbe {{<citation kimFunProbeProbingFunctions2023>}}.
+The second example is a shortened version of the function detection from FunProbe. {{<citation kimFunProbeProbingFunctions2023>}}
 It is an already implemented prototype and shows more down to earth application.
 In the discussion we will compare the obvious problems from the first example to the second,
 showing that they are still valid.
