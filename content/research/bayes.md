@@ -19,8 +19,12 @@ See https://github.com/rizinorg/rz-reason-exp/tree/main/bayes
 Chapter 1 in Foundations of the Theory of Probability by Kolmogorov {{< citation "FoundationsTheoryProbability" "Chapter 1" >}}.
 This is the standard book defining all basics (and some non-basics) of probability theory.
 
-For Bayesian networks you can refer to Stephenson {{<citation IntroductionBayesianNetworks2000>}} or
-the Bayesian Network lectures of Stanford class CS221 {{<citation StandfordCS221Bayes>}}.
+For a more modern and less math heavy introduction see A modern introduction
+to probability and statistics {{<citation dekkingModernIntroductionProbability2010>}}
+
+For Bayesian networks you can refer to Stephenson {{<citation IntroductionBayesianNetworks2000>}},
+the Bayesian Network lectures of Stanford class CS221 {{<citation StandfordCS221Bayes>}},
+or the lecture notes from University of Torronto class CS 486/686 {{<citation dekkingModernIntroductionProbability2010>}}.
 
 # Probability and Bayesian Networks
 
@@ -28,11 +32,20 @@ the Bayesian Network lectures of Stanford class CS221 {{<citation StandfordCS221
 
 See what is necessary to refresh for the experiment.
 
-## The example
+## Examples
 
-- Note, that it is not necessarily a good example.
-  - Many things are hardcoded.
-- Describe example.
+Let's turn to two examples to show how BNs could be used in RE.
+The `unintended jump` example is intentionally somewhat loose, highlighting the problems of BN application.
+The second example is a shortened version of the function detection from FunProbe {{<citation kimFunProbeProbingFunctions2023>}}.
+It is an already implemented prototype and shows more down to earth application.
+In the discussion we will compare the obvious problems from the first example to the second,
+showing that they are still valid.
+
+### Example - Unintended Jump Target
+
+Our goal: Decide for a branch instruction, if it can branch to an unintended address.
+
+> "Unintended" loosly means "any locations the developers did not intend to be reached from this point of the program".
 
 
 ## Discussion of applicability of BNs
@@ -41,7 +54,8 @@ See what is necessary to refresh for the experiment.
   - Sampling
     - Some use cases provide this. Which ones?
       - E.g. Obfuscated code: Have a list of know code obfuscation techniques -> count them.
-      - Measuring is not always possible. Or binary is too small to get a decent sample size.
+      - Measuring is not always possible. Either the binary is too small to get a decent sample size.
+        For some niche architectures there might not be enough public binaries to sample from.
   - Knowing/guessing
     - Maybe the most common case?
     - Expressing a feeling in terms of a probaility is almost certaintly wrong.

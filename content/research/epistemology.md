@@ -134,7 +134,7 @@ Add a brief refresher and links to more detailed introductions.
 You, as the author, are required to read the primary sources of course
 and understand its advantages and shortcomings.
 
-### Bayes
+### Bayesian Networks
 
 Visit [Bayes](/research//bayes) for the discussion.
 
