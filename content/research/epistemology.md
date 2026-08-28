@@ -138,13 +138,9 @@ and understand its advantages and shortcomings.
 
 Visit [Bayes](/research//bayes) for the discussion.
 
-### Theory of Belief
-
 ### Factor Graphs
 
 Not necessarily a philosophy. But applicable for us.
-
-### Baconian Probability
 
 ### The Stability Theory of Belief - Additive Logic of Epistemic Reasons {{< citation LeitgebAdditiveLogicReason2026 >}}
 
