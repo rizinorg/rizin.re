@@ -109,6 +109,10 @@ All questions we expect to answer.\
 In the end, these are questions a reverse engineer answers.\
 Except with scribbles in a notebook, so why not in computational form?
 
+> If you want to see an actual implementation of this principle here
+> check out FunProbe {{<citation kimFunProbeProbingFunctions2023>}}.
+> It builds a bayesian network from different kind of hints to infer functions.
+
 ## Abductive Example: Enhancing LLM reasoning with rapid access to low level facts.
 
 LLMs are already a huge help in generating hypotheses about artifacts in a binary.
@@ -231,8 +235,8 @@ Then an LLM can rely on short queries and their formally correct truthfulness,
 instead of endless generated walls of text.
 Humans, on the other hand, can add the bits and pieces agents cannot yet comprehend.
 
-Want to see a similar application of an LLM in production?
-Check out Binary Ninja's Sidekick in the [Related Work section](#related-work)!
+> Want to see a similar application of an LLM in production?
+> Check out Binary Ninja's Sidekick in the [Related Work section](#related-work)!
 
 ## Why Rizin is a Good Choice
 
@@ -299,6 +303,14 @@ is intended to have three steps:
 - The Binary Analysis Platform (BAP) has a reasoning engine called [Saluki](https://github.com/BinaryAnalysisPlatform/bap-plugins/tree/master/saluki).
   It lets you define rules and tries to apply them against the binary.
   There are rules to match simple backdoors, user-controlled stack pointers, or unsanitized SQL handling.
+- There is a growing research interest in using probabilistic reasoning to infer information about binaries:
+  {{<citation kimFunProbeProbingFunctions2023>}}
+  {{<citation zhangRevampingBinaryAnalysis2023>}}
+  {{<citation peiXDAAccurateRobust2020>}}
+  {{<citation yuDeepDiLearningRelational2022>}}
+  {{<citation shinRecognizingFunctionsBinaries2015>}}
+  {{<citation wangSemanticsAwareMachineLearning2017>}}
+  {{<citation baoBYTEWEIGHTLearningRecognize2014>}}
 
 # Want to Join?
 
