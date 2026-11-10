@@ -308,7 +308,7 @@ Mentors Members of the Rizin and Cutter core teams have volunteered to guide stu
       
       <guid>https://rizin.re/roadmap/</guid>
       <description>Concrete high-level feature areas and changes.
-0.9 Add support for missing members of H8 MCU family, and implement RzIL uplifting of them Complete migration from ESIL to RzIL for all supported architectures and features Improve FreeBSD, NetBSD, and OpenBSD debugging Improve ARM64 and PowerPC debugging Migrate from Capstone to Zydis for x86 architecture to address long-standing problems with unsupported x86 instructions Support STABS (pre-DWARF) debug information loading Add support for proper preprocessor in the type parser Refactor types to introduce type scope Rewrite RzNum to support proper formulas, bitvectors, floats, and so on Remove concept of the &amp;ldquo;block&amp;rdquo; in favor of direct transparent IO access Full milestone is at https://github.</description>
+0.10 Rewrite RzNum to support proper formulas, bitvectors, floats, and so on Support STABS (pre-DWARF) debug information loading Refactor native debugger Add support for proper preprocessor in the type parser Add support for Texas Instruments TMS320 family beyond C6x: C2x, C5x (both legacy and new), C28x, improve C6x support Add RzIL uplifting for Texas Instruments TMS320 family Add RzIL uplifting for RISC-V, Infineon C166, Motorola M68k Improve use by the AI agents and add an MCP server Full milestone is at https://github.</description>
     </item>
     
     
